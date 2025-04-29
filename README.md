@@ -1,2 +1,2 @@
-# DVVA_Master
+# DVVA Master
 Slides and exercises for the Data Visualization and Visual Analytics course
