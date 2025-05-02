@@ -51,7 +51,7 @@ paginate: true
 
 <div class="columns-2">
   <div>
-    <img src="img/do-dont/va_lesson8_charting_taxonomy_Page_02_Image_0003.jpg" style="width: 60%">
+    <img src="img/DVVA_07/va_lesson8_charting_taxonomy_Page_02_Image_0003.jpg" style="width: 60%">
   </div>
   <div>
     Dona M. Wong<br>
@@ -68,7 +68,7 @@ paginate: true
 
 # Charting Examples
 
-![center height:450](img/do-dont/va_lesson8_charting_taxonomy_Page_03_Image_0003.jpg)
+![center height:450](img/DVVA_07/va_lesson8_charting_taxonomy_Page_03_Image_0003.jpg)
 
 <!-- This is an example of a misleading bar chart. The problem is that it lacks a zero baseline, showing only a portion of the data (like an iceberg with most of it hidden). When the zero line is missing, it creates a visual distortion that exaggerates the differences between values. -->
 
@@ -76,7 +76,7 @@ paginate: true
 
 # Charting Examples
 
-![center height:450](img/do-dont/va_lesson8_charting_taxonomy_Page_04_Image_0003.jpg)
+![center height:450](img/DVVA_07/va_lesson8_charting_taxonomy_Page_04_Image_0003.jpg)
 
 <!-- This is the correct version of the previous chart, starting from zero. Bar charts should always include the zero baseline because the height of each bar should be proportional to the value it represents. Otherwise, the visual representation doesn't match the actual data proportions. -->
 
@@ -84,7 +84,7 @@ paginate: true
 
 # Charting Examples
 
-![center height:450](img/do-dont/va_lesson8_charting_taxonomy_Page_05_Image_0003.jpg)
+![center height:450](img/DVVA_07/va_lesson8_charting_taxonomy_Page_05_Image_0003.jpg)
 
 <!-- This is another problematic example - an area chart without a zero baseline. Similar to bar charts, area charts suggest the area under the curve represents the quantity, so missing the zero line creates a distorted view of the data. The slope here encodes the variation of price, but the filled area delivers another message in parallel about the total value. -->
 
@@ -92,7 +92,7 @@ paginate: true
 
 # Charting Examples
 
-![center height:450](img/do-dont/va_lesson8_charting_taxonomy_Page_06_Image_0003.jpg)
+![center height:450](img/DVVA_07/va_lesson8_charting_taxonomy_Page_06_Image_0003.jpg)
 
 <!-- The correct version includes the full chart with a zero baseline. Alternatively, if we're primarily interested in trends rather than absolute values, a line chart without fill might be more appropriate, as it would focus on the rate of change without implying anything about the area underneath. -->
 
@@ -100,7 +100,7 @@ paginate: true
 
 # Charting Examples
 
-![center height:450](img/do-dont/va_lesson8_charting_taxonomy_Page_07_Image_0003.jpg)
+![center height:450](img/DVVA_07/va_lesson8_charting_taxonomy_Page_07_Image_0003.jpg)
 
 <!-- Another approach would be to transform the data to show changes from an initial reference point. This makes it easier to focus on relative changes over time rather than absolute values. The zero line then represents "no change" from the reference point. -->
 
@@ -110,10 +110,10 @@ paginate: true
 
 <div class="columns-2">
   <div>
-    <img src="img/do-dont/va_lesson8_charting_taxonomy_Page_08_Image_0003.jpg" alt="" >
+    <img src="img/DVVA_07/va_lesson8_charting_taxonomy_Page_08_Image_0003.jpg" alt="" >
   </div>
   <div>
-    <img src="img/do-dont/va_lesson8_charting_taxonomy_Page_09_Image_0003.jpg" alt="" >
+    <img src="img/DVVA_07/va_lesson8_charting_taxonomy_Page_09_Image_0003.jpg" alt="" >
   </div>
 </div>
 
@@ -129,10 +129,10 @@ May these charts be improved? Why? How?
 
 <div class="columns-2">
   <div>
-    <img src="img/do-dont/va_lesson8_charting_taxonomy_Page_09_Image_0003.jpg" alt="" >
+    <img src="img/DVVA_07/va_lesson8_charting_taxonomy_Page_09_Image_0003.jpg" alt="" >
   </div>
   <div>
-    <img src="img/do-dont/va_lesson8_charting_taxonomy_Page_09_Image_0004.jpg" alt="" >
+    <img src="img/DVVA_07/va_lesson8_charting_taxonomy_Page_09_Image_0004.jpg" alt="" >
   </div>
 </div>
 
@@ -148,10 +148,10 @@ May these charts be improved? Why? How?
 <div class="columns-2">
   <div>
     <h1>Font Anatomy</h1>
-    <img src="img/do-dont/va_lesson8_charting_taxonomy_Page_11_Image_0003.jpg" style="width: 60%">
+    <img src="img/DVVA_07/va_lesson8_charting_taxonomy_Page_11_Image_0003.jpg" style="width: 60%">
   </div>
   <div>
-    <img src="img/do-dont/va_lesson8_charting_taxonomy_Page_11_Image_0004.jpg" alt="">
+    <img src="img/DVVA_07/va_lesson8_charting_taxonomy_Page_11_Image_0004.jpg" alt="">
   <hr>
   Typographic parts of a glyph: 1) x-height; **2) ascender line;** 3) apex; **4) baseline;** 5) ascender; 6) crossbar; 7) stem; **8) serif;** 9) leg; 10) bowl; 11) counter; 12) collar; 13) loop; 14) ear; 15) tie; 16) horizontal bar; 17) arm; 18) vertical bar; 19) cap height; **20) descenderline.**
 
@@ -196,7 +196,7 @@ May these charts be improved? Why? How?
 # Typography in Charts
 
 
-![center height:450](img/do-dont/va_lesson8_charting_taxonomy_Page_13.jpg) 
+![center height:450](img/DVVA_07/va_lesson8_charting_taxonomy_Page_13.jpg) 
 
 <!-- The example on the left shows several typographic problems: using all-caps for titles, bold for axis labels, tilted text that's hard to read, and both bold and italic together. The example on the right shows cleaner typography with a normally capitalized title, clean horizontal labels, and sparing use of emphasis. -->
 
@@ -206,10 +206,10 @@ May these charts be improved? Why? How?
 
 <div class="columns-2">
 <div>
-  <img src="img/do-dont/type_line_chart_1.png" alt="line" style="height:80%">
+  <img src="img/DVVA_07/type_line_chart_1.png" alt="line" style="height:80%">
 </div>
 <div>
-  <img src="img/do-dont/type_line_chart_0.png" alt="line good" style="height: 80%">
+  <img src="img/DVVA_07/type_line_chart_0.png" alt="line good" style="height: 80%">
 </div>
 </div>
 
@@ -272,8 +272,8 @@ Give emphasis to relevant results
 ---
 
 # Data-Ink Ratio
-![center](img/do-dont/va_lesson8_charting_taxonomy_Page_18_Image_0003.jpg)
-![center](img/do-dont/va_lesson8_charting_taxonomy_Page_17_Image_0003.jpg)
+![center](img/DVVA_07/va_lesson8_charting_taxonomy_Page_18_Image_0003.jpg)
+![center](img/DVVA_07/va_lesson8_charting_taxonomy_Page_17_Image_0003.jpg)
 
 <!-- This 3D bar chart has a poor data-ink ratio. Many visual elements don't encode any data: the depth of bars, the fake shadows, and the 3D perspective. The 3D perspective also distorts the height comparison, making it harder to accurately compare values. -->
 
@@ -281,8 +281,8 @@ Give emphasis to relevant results
 
 # Data-Ink Ratio
 
-![center](img/do-dont/va_lesson8_charting_taxonomy_Page_18_Image_0003.jpg)
-![center height:350](img/do-dont/two_barcharts.png)
+![center](img/DVVA_07/va_lesson8_charting_taxonomy_Page_18_Image_0003.jpg)
+![center height:350](img/DVVA_07/two_barcharts.png)
 
 <!-- This 2D bar chart has a much better data-ink ratio. It presents the same data clearly without distortion. All visual elements contribute to understanding the data. The height of each bar is clearly proportional to its value, making comparisons easy and accurate. -->
 
@@ -292,7 +292,7 @@ Give emphasis to relevant results
 
 Represent discrete quantities 
 
-![center height:400](img/do-dont/barcharts_discrete.png)
+![center height:400](img/DVVA_07/barcharts_discrete.png)
 
 <!-- Bar charts are excellent for comparing discrete quantities. They leverage our ability to compare lengths accurately. The baseline should always be zero, and bars can be sorted to help identify patterns, especially when there's no inherent order to the categories. -->
 
@@ -302,7 +302,7 @@ Represent discrete quantities
 
 Avoid non-functional adornation
 
-![center height:450](img/do-dont/va_lesson8_charting_taxonomy_Page_20_Image_0003.jpg)
+![center height:450](img/DVVA_07/va_lesson8_charting_taxonomy_Page_20_Image_0003.jpg)
 
 <!-- 3D effects on bar charts are counterproductive. They add no information while making it harder to judge the actual values. The perspective distortion makes bars of equal height appear different depending on their position, and the shadows and depth don't encode any data. -->
 
@@ -311,7 +311,7 @@ Avoid non-functional adornation
 # Bar Charts: Baseline
 
 
-![center height:450](img/do-dont/barcharts_baseline.png)
+![center height:450](img/DVVA_07/barcharts_baseline.png)
 
 
 <!-- The left chart has a truncated axis that starts at 75 instead of 0, exaggerating the differences between bars. The right chart correctly starts at 0, showing the true proportions. Bar charts must always include zero on their scale because the entire height of the bar represents the value. -->
@@ -320,7 +320,7 @@ Avoid non-functional adornation
 
 # Bar Charts: Baseline
 
-![center height:450](img/do-dont/barchart_baseline.png)
+![center height:450](img/DVVA_07/barchart_baseline.png)
 
 <!-- When working with negative values in bar charts, the zero line becomes the central reference point. Bars can extend upward for positive values and downward for negative values. This correctly preserves the proportionality that is fundamental to bar charts. -->
 
@@ -328,7 +328,7 @@ Avoid non-functional adornation
 
 # Bar Charts: Ordering
 
-![center height:450](img/do-dont/barchart_ordering.png)
+![center height:450](img/DVVA_07/barchart_ordering.png)
 
 <!-- If categories have no natural order (like countries), sorting bars by value often makes the chart easier to read. This helps identify patterns, maximums, minimums, and medians. However, if there's a natural order (like timestamps), it's usually better to preserve that order.
 
@@ -340,7 +340,7 @@ Horizontal bar charts work well when you have many categories or long category n
 
 • Pie Charts compare relative sizes and contributions
 
-![center height:400](img/do-dont/va_lesson8_charting_taxonomy_Page_25_Image_0003.jpg)
+![center height:400](img/DVVA_07/va_lesson8_charting_taxonomy_Page_25_Image_0003.jpg)
 
 <!-- Pie charts show parts of a whole. They're best used when you have very few segments (ideally 2-3) and when the primary task is to see if something is above or below 50%. They become increasingly difficult to read with more segments, especially when segments are similar in size. -->
 
@@ -348,7 +348,7 @@ Horizontal bar charts work well when you have many categories or long category n
 
 # Pie Charts: Ordering Slices
 
-![center height:500](img/do-dont/va_lesson8_charting_taxonomy_Page_26_Image_0003.jpg)
+![center height:500](img/DVVA_07/va_lesson8_charting_taxonomy_Page_26_Image_0003.jpg)
 
 <!-- When using pie charts, arrange the largest slice at the top (12 o'clock position) and the second largest to the right. This makes the most important segments easier to compare. It's easier to compare angles that are aligned with vertical or horizontal reference lines. -->
 
@@ -356,7 +356,7 @@ Horizontal bar charts work well when you have many categories or long category n
 
 # Pie vs Bar Charts
 
-![center height:400](img/do-dont/va_lesson8_charting_taxonomy_Page_34_Image_0003.jpg)
+![center height:400](img/DVVA_07/va_lesson8_charting_taxonomy_Page_34_Image_0003.jpg)
 
 <!-- This shows the same data as a pie chart and a bar chart. The pie chart shows that two companies make up 65% of the market (parts of a whole), while the bar chart makes it easier to compare the exact values between companies. Each has different strengths depending on your visualization goal. -->
 
@@ -365,11 +365,11 @@ Horizontal bar charts work well when you have many categories or long category n
 # Visualization Taxonomy
 
 
-![center height:500](img/do-dont/va_lesson8_charting_taxonomy_Page_29_Image_0003.jpg)
+![center height:500](img/DVVA_07/va_lesson8_charting_taxonomy_Page_29_Image_0003.jpg)
 
 ---
 
-![center height:550](img/do-dont/va_lesson8_charting_taxonomy_Page_30_Image_0003.jpg)
+![center height:550](img/DVVA_07/va_lesson8_charting_taxonomy_Page_30_Image_0003.jpg)
 
 ---
 
@@ -377,7 +377,7 @@ Horizontal bar charts work well when you have many categories or long category n
 
 Line implies trends. Do not use for categorical data
 
-![center height:400](img/do-dont/va_lesson8_charting_taxonomy_Page_31_Image_0003.jpg)
+![center height:400](img/DVVA_07/va_lesson8_charting_taxonomy_Page_31_Image_0003.jpg)
 
 <!-- Line charts imply continuity and trends between points, so they should only be used for continuous data where that connection is meaningful (like time series). For categorical data with no inherent order, bar charts are more appropriate. Using lines for categorical data can imply false relationships. -->
 
@@ -385,7 +385,7 @@ Line implies trends. Do not use for categorical data
 
 # Trend Over Time
 
-![center height:400](img/do-dont/va_lesson8_charting_taxonomy_Page_32_Image_0003.jpg)
+![center height:400](img/DVVA_07/va_lesson8_charting_taxonomy_Page_32_Image_0003.jpg)
 
 WILLIAM PLAYFAIR 1759-1823
 
@@ -395,7 +395,7 @@ WILLIAM PLAYFAIR 1759-1823
 
 # Patterns Over Time
 
-![center height:400](img/do-dont/va_lesson8_charting_taxonomy_Page_33_Image_0003.jpg)
+![center height:400](img/DVVA_07/va_lesson8_charting_taxonomy_Page_33_Image_0003.jpg)
 
 Marey's diagram, 1885
 
@@ -406,7 +406,7 @@ Marey's diagram, 1885
 
 
 # Charting Examples
-![center height:400](img/do-dont/pie_to_improve.png)
+![center height:400](img/DVVA_07/pie_to_improve.png)
 
 May these charts be improved? Why? How?
 
@@ -417,11 +417,11 @@ May these charts be improved? Why? How?
 <div class="columns-2">
 <div>
 
-![center height:400](img/do-dont/va_lesson8_charting_taxonomy_Page_35_Image_0003.jpg)
+![center height:400](img/DVVA_07/va_lesson8_charting_taxonomy_Page_35_Image_0003.jpg)
 </div>
 <div>
 
-![center height:400](img/do-dont/bar_35.png)
+![center height:400](img/DVVA_07/bar_35.png)
 
 </div>
 </div>
@@ -437,11 +437,11 @@ May these charts be improved? Why? How?
 <div class="columns-2">
 <div>
 
-![center height:400](img/do-dont/va_lesson8_charting_taxonomy_Page_35_Image_0003.jpg)
+![center height:400](img/DVVA_07/va_lesson8_charting_taxonomy_Page_35_Image_0003.jpg)
 </div>
 <div>
 
-![center height:400](img/do-dont/bar_36.png)
+![center height:400](img/DVVA_07/bar_36.png)
 </div>
 </div>
 
@@ -454,11 +454,11 @@ May these charts be improved? Why? How?
 <div class="columns-2">
 <div>
 
-![center height:400](img/do-dont/va_lesson8_charting_taxonomy_Page_35_Image_0003.jpg)
+![center height:400](img/DVVA_07/va_lesson8_charting_taxonomy_Page_35_Image_0003.jpg)
 </div>
 <div>
 
-![center height:400](img/do-dont/bar_37.png)
+![center height:400](img/DVVA_07/bar_37.png)
 </div>
 </div>
 
@@ -470,12 +470,12 @@ May these charts be improved? Why? How?
 <div class="columns-2">
 <div>
 
-![center height:400](img/do-dont/va_lesson8_charting_taxonomy_Page_38_Image_0003.jpg)
+![center height:400](img/DVVA_07/va_lesson8_charting_taxonomy_Page_38_Image_0003.jpg)
 
 </div>
 <div>
 
-![center height:400](img/do-dont/va_lesson8_charting_taxonomy_Page_38_Image_0004.jpg)
+![center height:400](img/DVVA_07/va_lesson8_charting_taxonomy_Page_38_Image_0004.jpg)
 </div>
 </div>
 
@@ -489,12 +489,12 @@ May these charts be improved? Why? How?
 <div class="columns-2">
 <div>
 
-![center width:600 ](img/do-dont/va_lesson8_charting_taxonomy_Page_39_Image_0003.jpg)
+![center width:600 ](img/DVVA_07/va_lesson8_charting_taxonomy_Page_39_Image_0003.jpg)
 
 </div>
 <div>
 
-![center height:400](img/do-dont/va_lesson8_charting_taxonomy_Page_39_Image_0004.jpg)
+![center height:400](img/DVVA_07/va_lesson8_charting_taxonomy_Page_39_Image_0004.jpg)
 </div>
 </div>
 
@@ -504,7 +504,7 @@ May these charts be improved? Why? How?
 
 # Density Plot
 
-![center height:250](img/do-dont/va_lesson8_charting_taxonomy_Page_40_Image_0003.jpg)
+![center height:250](img/DVVA_07/va_lesson8_charting_taxonomy_Page_40_Image_0003.jpg)
 
 <!-- Density plots help visualize the distribution of data. They're especially useful when you have many data points that would create overplotting in a scatter plot. The curve shows where values are concentrated, and the actual data points can be shown along the axis for reference. -->
 
@@ -515,12 +515,12 @@ May these charts be improved? Why? How?
 <div class="columns-2">
 <div>
 
-![center height:400](img/do-dont/va_lesson8_charting_taxonomy_Page_41_Image_0003.jpg)
+![center height:400](img/DVVA_07/va_lesson8_charting_taxonomy_Page_41_Image_0003.jpg)
 
 </div>
 <div>
 
-![center height:400](img/do-dont/va_lesson8_charting_taxonomy_Page_41_Image_0004.jpg)
+![center height:400](img/DVVA_07/va_lesson8_charting_taxonomy_Page_41_Image_0004.jpg)
 
 </div>
 </div>
@@ -531,7 +531,7 @@ May these charts be improved? Why? How?
 
 # Box Plots
 
-![center height:500](img/do-dont/va_lesson8_charting_taxonomy_Page_42_Image_0003.jpg)
+![center height:500](img/DVVA_07/va_lesson8_charting_taxonomy_Page_42_Image_0003.jpg)
 
 <!-- Box plots (or box and whisker plots) compactly summarize data distributions. The box shows the interquartile range (middle 50% of data), with the median as a line inside. Whiskers typically extend to show the range, with outliers sometimes plotted as individual points. -->
 
@@ -539,7 +539,7 @@ May these charts be improved? Why? How?
 
 # Scatterplot
 
-![center height:500](img/do-dont/va_lesson8_charting_taxonomy_Page_43_Image_0003.jpg)
+![center height:500](img/DVVA_07/va_lesson8_charting_taxonomy_Page_43_Image_0003.jpg)
 
 <!-- Scatter plots show relationships between two continuous variables. Each point represents an observation with its position determined by its values on two axes. This example humorously shows relationships between how tasty fruits are versus how difficult they are to eat. -->
 
@@ -547,7 +547,7 @@ May these charts be improved? Why? How?
 
 # Cluttering, Overplotting
 
-![center height:500](img/do-dont/va_lesson8_charting_taxonomy_Page_44_Image_0003.jpg)
+![center height:500](img/DVVA_07/va_lesson8_charting_taxonomy_Page_44_Image_0003.jpg)
 
 <!-- When scatter plots contain too many points, they suffer from overplotting - points overlap and obscure patterns. This makes it difficult to see the true distribution of the data, especially in dense regions where many points occupy the same visual space. -->
 
@@ -557,7 +557,7 @@ May these charts be improved? Why? How?
 
 alpha=1/10 | alpha=1/100
 --- | ---
-![center height:400](img/do-dont/va_lesson8_charting_taxonomy_Page_45_Image_0003.jpg) | ![center height:400](img/do-dont/va_lesson8_charting_taxonomy_Page_45_Image_0004.jpg)
+![center height:400](img/DVVA_07/va_lesson8_charting_taxonomy_Page_45_Image_0003.jpg) | ![center height:400](img/DVVA_07/va_lesson8_charting_taxonomy_Page_45_Image_0004.jpg)
 
 <!-- One solution to overplotting is to make points semi-transparent by setting an alpha value. Areas with more overlapping points appear darker, revealing density patterns. The right image uses higher transparency (alpha=1/100), making the density patterns even clearer. -->
 
@@ -584,7 +584,7 @@ alpha=1/10 | alpha=1/100
 
 # GDP Growth Example
 
-![center height:450](img/do-dont/va_lesson8_charting_taxonomy_Page_47_Image_0003.jpg)
+![center height:450](img/DVVA_07/va_lesson8_charting_taxonomy_Page_47_Image_0003.jpg)
 
 <!-- This misleading bar chart exaggerates a small difference (from 0.6% to 0.7% GDP growth) by using a truncated axis and unequal bar widths. The second estimate (0.7%) looks about 3 times larger than the first estimate (0.6%), creating a visual impression far stronger than the actual 0.1 percentage point increase. -->
 
@@ -592,19 +592,19 @@ alpha=1/10 | alpha=1/100
 
 # Facebook Analytics Example
 
-![center height:450](img/do-dont/va_lesson8_charting_taxonomy_Page_48_Image_0003.jpg)
+![center height:450](img/DVVA_07/va_lesson8_charting_taxonomy_Page_48_Image_0003.jpg)
 
 <!-- This example from Facebook Analytics uses grouped bar charts to compare demographics. The dual-color scheme effectively contrasts men vs. women across age ranges. Note that the values are presented both as percentages and as absolute numbers, giving context to the data. -->
 
 ---
 
-![center height:450](img/do-dont/va_lesson8_charting_taxonomy_Page_49_Image_0003.jpg)
+![center height:450](img/DVVA_07/va_lesson8_charting_taxonomy_Page_49_Image_0003.jpg)
 
 ---
 
 # Photography Industry Example
 
-![center height:450](img/do-dont/va_lesson8_charting_taxonomy_Page_50_Image_0003.jpg)
+![center height:450](img/DVVA_07/va_lesson8_charting_taxonomy_Page_50_Image_0003.jpg)
 
 <!-- This infographic combines multiple chart types to tell a comprehensive story about the camera industry. It uses bar charts for year-over-year comparisons, pie charts to show market composition, and percentage figures to highlight key changes. The consistent color scheme helps connect related information across different charts. -->
 
@@ -612,7 +612,7 @@ alpha=1/10 | alpha=1/100
 
 # Visual Taxonomy
 
-![center height:400](img/do-dont/va_lesson8_charting_taxonomy_Page_51_Image_0003.jpg)
+![center height:400](img/DVVA_07/va_lesson8_charting_taxonomy_Page_51_Image_0003.jpg)
 
 http://www.datavizcatalogue.com/
 
