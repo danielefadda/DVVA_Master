@@ -1,0 +1,21 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "capacity": "28", "name": "Stazione F.S.", "lon": 10.3989605, "lat": 43.7084709 }, "geometry": { "type": "Point", "coordinates": [ 10.3989605, 43.7084709 ] } },
+{ "type": "Feature", "properties": { "capacity": "16", "name": "Vittorio Emanuele", "lon": 10.3987825, "lat": 43.7101854 }, "geometry": { "type": "Point", "coordinates": [ 10.3987825, 43.7101854 ] } },
+{ "type": "Feature", "properties": { "capacity": "24", "name": "Palacongressi", "lon": 10.4097121, "lat": 43.7106075 }, "geometry": { "type": "Point", "coordinates": [ 10.4097121, 43.7106075 ] } },
+{ "type": "Feature", "properties": { "capacity": "10", "name": "Aeroporto", "lon": 10.4005415, "lat": 43.6989552 }, "geometry": { "type": "Point", "coordinates": [ 10.4005415, 43.6989552 ] } },
+{ "type": "Feature", "properties": { "capacity": "30", "name": "Pietrasantina", "lon": 10.3928733, "lat": 43.7290165 }, "geometry": { "type": "Point", "coordinates": [ 10.3928733, 43.7290165 ] } },
+{ "type": "Feature", "properties": { "capacity": "30", "name": "Paparelli", "lon": 10.410243, "lat": 43.7246423 }, "geometry": { "type": "Point", "coordinates": [ 10.410243, 43.7246423 ] } },
+{ "type": "Feature", "properties": { "capacity": "30", "name": "Pratale", "lon": 10.4184265, "lat": 43.7215365 }, "geometry": { "type": "Point", "coordinates": [ 10.4184265, 43.7215365 ] } },
+{ "type": "Feature", "properties": { "capacity": "14", "name": "Polo Marzotto", "lon": 10.4071847, "lat": 43.7198029 }, "geometry": { "type": "Point", "coordinates": [ 10.4071847, 43.7198029 ] } },
+{ "type": "Feature", "properties": { "capacity": "9", "name": "Borgo Stretto", "lon": 10.4021322, "lat": 43.7184126 }, "geometry": { "type": "Point", "coordinates": [ 10.4021322, 43.7184126 ] } },
+{ "type": "Feature", "properties": { "capacity": "22", "name": "Duomo", "lon": 10.3919852, "lat": 43.7228627 }, "geometry": { "type": "Point", "coordinates": [ 10.3919852, 43.7228627 ] } },
+{ "type": "Feature", "properties": { "capacity": "16", "name": "Comune Palazzo Blu", "lon": 10.3998955, "lat": 43.7157647 }, "geometry": { "type": "Point", "coordinates": [ 10.3998955, 43.7157647 ] } },
+{ "type": "Feature", "properties": { "capacity": "12", "name": "Sms Biblioteca", "lon": 10.4191334, "lat": 43.7065577 }, "geometry": { "type": "Point", "coordinates": [ 10.4191334, 43.7065577 ] } },
+{ "type": "Feature", "properties": { "capacity": "14", "name": "Ospedale Cisanello", "lon": 10.4401533, "lat": 43.7067956 }, "geometry": { "type": "Point", "coordinates": [ 10.4401533, 43.7067956 ] } },
+{ "type": "Feature", "properties": { "capacity": "10", "name": "Porta a Lucca", "lon": 10.4022602, "lat": 43.7242476 }, "geometry": { "type": "Point", "coordinates": [ 10.4022602, 43.7242476 ] } },
+{ "type": "Feature", "properties": { "capacity": "12", "name": "Teatro Tribunale", "lon": 10.4051037, "lat": 43.7163803 }, "geometry": { "type": "Point", "coordinates": [ 10.4051037, 43.7163803 ] } }
+]
+}
