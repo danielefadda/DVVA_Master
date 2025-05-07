@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruota della SFortuna</title>
+    <style>
+        /* Reset e stili di base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #6a1b9a;
+            margin-bottom: 20px;
+            font-size: 32px;
+        }
+
+        h2 {
+            color: #6a1b9a;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        /* Sezione input */
+        .input-section {
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        textarea {
+            width: 100%;
+            height: 120px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical;
+            font-size: 16px;
+        }
+
+        .button-group {
+            margin-top: 10px;
+            display: flex;
+            gap: 10px;
+        }
+
+        button {
+            cursor: pointer;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        button:disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .btn-primary {
+            background-color: #6a1b9a;
+            color: white;
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            background-color: #581b87;
+        }
+
+        .btn-danger {
+            background-color: #e53935;
+            color: white;
+        }
+
+        .btn-danger:hover:not(:disabled) {
+            background-color: #c62828;
+        }
+
+        .btn-secondary {
+            background-color: #e0e0e0;
+            color: #333;
+        }
+
+        .btn-secondary:hover:not(:disabled) {
+            background-color: #d0d0d0;
+        }
+
+        /* Layout principale */
+        .main-layout {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .wheel-section, .names-section {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        /* Ruota */
+        .wheel-container {
+            position: relative;
+            width: 280px;
+            height: 280px;
+            margin: 0 auto 20px;
+        }
+
+        .wheel {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #9c27b0, #e91e63, #f44336);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transform: rotate(0deg);
+        }
+
+        .wheel-center {
+            position: absolute;
+            width: calc(100% - 20px);
+            height: calc(100% - 20px);
+            border-radius: 50%;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .wheel-text {
+            text-align: center;
+            font-weight: bold;
+            color: #6a1b9a;
+            font-size: 18px;
+            padding: 10px;
+        }
+
+        .wheel-arrow {
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-left: 25px solid #e53935;
+            z-index: 3;
+        }
+
+        .spin-button {
+            display: block;
+            margin: 0 auto;
+            padding: 12px 25px;
+            font-size: 18px;
+            border-radius: 30px;
+            background-color: #6a1b9a;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .spin-button:hover:not(:disabled) {
+            transform: scale(1.05);
+            background-color: #581b87;
+        }
+
+        .winner-display {
+            margin-top: 15px;
+            text-align: center;
+            background-color: #fff9c4;
+            border: 2px solid #ffeb3b;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 18px;
+            color: #6a1b9a;
+            display: none;
+        }
+
+        /* Lista nomi */
+        .names-list {
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            padding: 10px;
+            background-color: #fcfcfc;
+        }
+
+        .empty-list {
+            font-style: italic;
+            color: #666;
+            padding: 5px;
+        }
+
+        .name-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .name-item:last-child {
+            border-bottom: none;
+        }
+
+        .remove-name {
+            cursor: pointer;
+            color: #e53935;
+            font-weight: bold;
+            font-size: 18px;
+            width: 24px;
+            height: 24px;
+            line-height: 20px;
+            text-align: center;
+            border-radius: 50%;
+            transition: background-color 0.2s ease;
+        }
+
+        .remove-name:hover {
+            background-color: #ffebee;
+        }
+
+        /* Cronologia */
+        .history-section {
+            margin-top: 20px;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .history-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .history-toggle {
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 12px solid #6a1b9a;
+            transition: transform 0.3s ease;
+        }
+
+        .history-toggle.open {
+            transform: rotate(180deg);
+        }
+
+        .history-content {
+            margin-top: 10px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .history-content.open {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .history-list {
+            list-style: decimal;
+            padding-left: 25px;
+        }
+
+        .history-list li {
+            padding: 5px 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-layout {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ruota della Fortuna</h1>
+        
+        <!-- Sezione input -->
+        <div class="input-section">
+            <label for="names-input">Inserisci i nomi (separati da virgola o nuova linea):</label>
+            <textarea id="names-input" placeholder="Mario Rossi, Giuseppe Verdi, Anna Bianchi..."></textarea>
+            <div class="button-group">
+                <button id="add-names" class="btn-primary">Aggiungi Nomi</button>
+                <button id="clear-all" class="btn-danger">Cancella Tutto</button>
+            </div>
+        </div>
+        
+        <!-- Layout principale -->
+        <div class="main-layout">
+            <!-- Sezione ruota -->
+            <div class="wheel-section">
+                <div class="wheel-container">
+                    <div class="wheel" id="wheel">
+                        <div class="wheel-center">
+                            <div class="wheel-text" id="wheel-text">Premi Gira</div>
+                        </div>
+                    </div>
+                    <div class="wheel-arrow"></div>
+                </div>
+                
+                <button id="spin-button" class="spin-button" disabled>Gira la Ruota!</button>
+                
+                <div class="winner-display" id="winner-display">
+                    Estratto: <span id="winner-name"></span>
+                </div>
+            </div>
+            
+            <!-- Sezione nomi -->
+            <div class="names-section">
+                <h2>Nomi nella Ruota (<span id="names-count">0</span>)</h2>
+                <div class="names-list" id="names-list">
+                    <div class="empty-list">Nessun nome aggiunto</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sezione cronologia -->
+        <div class="history-section">
+            <div class="history-header" id="history-header">
+                <h2>Cronologia Estrazioni (<span id="history-count">0</span>)</h2>
+                <div class="history-toggle" id="history-toggle"></div>
+            </div>
+            <div class="history-content" id="history-content">
+                <div id="history-empty" class="empty-list">Nessuna estrazione effettuata</div>
+                <ol class="history-list" id="history-list"></ol>
+                <button id="clear-history" class="btn-secondary" style="margin-top: 10px;">Cancella Cronologia</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Elementi DOM
+        const namesInput = document.getElementById('names-input');
+        const addNamesBtn = document.getElementById('add-names');
+        const clearAllBtn = document.getElementById('clear-all');
+        const spinButton = document.getElementById('spin-button');
+        const wheel = document.getElementById('wheel');
+        const wheelText = document.getElementById('wheel-text');
+        const winnerDisplay = document.getElementById('winner-display');
+        const winnerName = document.getElementById('winner-name');
+        const namesList = document.getElementById('names-list');
+        const namesCount = document.getElementById('names-count');
+        const historyHeader = document.getElementById('history-header');
+        const historyToggle = document.getElementById('history-toggle');
+        const historyContent = document.getElementById('history-content');
+        const historyList = document.getElementById('history-list');
+        const historyCount = document.getElementById('history-count');
+        const historyEmpty = document.getElementById('history-empty');
+        const clearHistoryBtn = document.getElementById('clear-history');
+
+        // Stato dell'applicazione
+        let names = [];
+        let history = [];
+        let isSpinning = false;
+        let currentRotation = 0;
+        let historyOpen = false;
+        
+        // Funzioni di utilità
+        function updateNamesList() {
+            namesList.innerHTML = '';
+            namesCount.textContent = names.length;
+            
+            if (names.length === 0) {
+                namesList.innerHTML = '<div class="empty-list">Nessun nome aggiunto</div>';
+                spinButton.disabled = true;
+                return;
+            }
+            
+            spinButton.disabled = false;
+            
+            names.forEach((name, index) => {
+                const nameItem = document.createElement('div');
+                nameItem.className = 'name-item';
+                nameItem.innerHTML = `
+                    <span>${name}</span>
+                    <span class="remove-name" data-index="${index}">×</span>
+                `;
+                namesList.appendChild(nameItem);
+            });
+            
+            // Aggiungi linee divisorie alla ruota
+            updateWheelDividers();
+        }
+        
+        function updateWheelDividers() {
+            // Rimuovi i vecchi divisori
+            const oldDividers = wheel.querySelectorAll('.wheel-divider');
+            oldDividers.forEach(div => div.remove());
+            
+            // Aggiungi nuovi divisori
+            if (names.length > 1) {
+                for (let i = 0; i < names.length; i++) {
+                    const angle = (i * 360) / names.length;
+                    const divider = document.createElement('div');
+                    divider.className = 'wheel-divider';
+                    divider.style.position = 'absolute';
+                    divider.style.width = '100%';
+                    divider.style.height = '2px';
+                    divider.style.backgroundColor = 'rgba(255, 255, 255, 0.4)';
+                    divider.style.transformOrigin = 'center';
+                    divider.style.transform = `rotate(${angle}deg)`;
+                    wheel.appendChild(divider);
+                }
+            }
+        }
+        
+        function updateHistoryList() {
+            historyCount.textContent = history.length;
+            
+            if (history.length === 0) {
+                historyEmpty.style.display = 'block';
+                historyList.style.display = 'none';
+                clearHistoryBtn.style.display = 'none';
+            } else {
+                historyEmpty.style.display = 'none';
+                historyList.style.display = 'block';
+                clearHistoryBtn.style.display = 'inline-block';
+                
+                historyList.innerHTML = '';
+                history.forEach(item => {
+                    const li = document.createElement('li');
+                    li.textContent = item;
+                    historyList.appendChild(li);
+                });
+            }
+        }
+        
+        function toggleHistory() {
+            historyOpen = !historyOpen;
+            
+            if (historyOpen) {
+                historyContent.classList.add('open');
+                historyToggle.classList.add('open');
+            } else {
+                historyContent.classList.remove('open');
+                historyToggle.classList.remove('open');
+            }
+        }
+        
+        // Gestori degli eventi
+        addNamesBtn.addEventListener('click', () => {
+            const input = namesInput.value.trim();
+            if (!input) return;
+            
+            // Dividi per virgola o nuova linea
+            const newNames = input.split(/[,\n]/)
+                .map(name => name.trim())
+                .filter(name => name !== '');
+                
+            names = [...names, ...newNames];
+            namesInput.value = '';
+            updateNamesList();
+        });
+        
+        clearAllBtn.addEventListener('click', () => {
+            names = [];
+            winnerDisplay.style.display = 'none';
+            updateNamesList();
+        });
+        
+        namesList.addEventListener('click', (e) => {
+            if (e.target.classList.contains('remove-name')) {
+                const index = parseInt(e.target.dataset.index);
+                names.splice(index, 1);
+                updateNamesList();
+            }
+        });
+        
+        spinButton.addEventListener('click', () => {
+            if (isSpinning || names.length === 0) return;
+            
+            isSpinning = true;
+            winnerDisplay.style.display = 'none';
+            wheelText.textContent = 'Gira...';
+            spinButton.disabled = true;
+            
+            // Calcola rotazione casuale (5-10 giri completi + angolo casuale)
+            const spinRotations = 5 + Math.floor(Math.random() * 5);
+            const randomAngle = Math.floor(Math.random() * 360);
+            const totalRotation = currentRotation + (spinRotations * 360) + randomAngle;
+            
+            // Aggiorna rotazione
+            currentRotation = totalRotation;
+            wheel.style.transform = `rotate(${totalRotation}deg)`;
+            
+            // Determina il vincitore dopo il termine della rotazione
+            setTimeout(() => {
+                const winnerIndex = Math.floor(Math.random() * names.length);
+                const selectedName = names[winnerIndex];
+                
+                wheelText.textContent = selectedName;
+                winnerName.textContent = selectedName;
+                winnerDisplay.style.display = 'block';
+                
+                // Aggiungi alla cronologia
+                history.push(selectedName);
+                updateHistoryList();
+                
+                isSpinning = false;
+                spinButton.disabled = false;
+            }, 3000);
+        });
+        
+        historyHeader.addEventListener('click', toggleHistory);
+        
+        clearHistoryBtn.addEventListener('click', () => {
+            history = [];
+            updateHistoryList();
+        });
+        
+        // Inizializzazione
+        updateNamesList();
+        updateHistoryList();
+    </script>
+</body>
+</html>
