@@ -1,0 +1,98 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "background": "white",
+  "padding": 5,
+  "width": 600,
+  "height": 400,
+  "title": {
+    "text": "Tasso di disoccupazione negli Stati Uniti",
+    "frame": "group"
+  },
+  "style": "view",
+  "data": [
+    {
+      "name": "source_1",
+      "url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/unemployment.tsv",
+      "format": {"type": "tsv", "delimiter": "\t"}
+    },
+    {
+      "name": "source_0",
+      "url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/us-10m.json",
+      "format": {"feature": "counties", "type": "topojson"},
+      "transform": [
+        {
+          "type": "lookup",
+          "from": "source_1",
+          "key": "id",
+          "fields": ["id"],
+          "values": ["rate"]
+        },
+        {
+          "type": "filter",
+          "expr": "isValid(datum[\"rate\"]) && isFinite(+datum[\"rate\"])"
+        }
+      ]
+    }
+  ],
+  "projections": [
+    {
+      "name": "projection",
+      "size": {"signal": "[width, height]"},
+      "fit": {"signal": "data('source_0')"},
+      "type": "albersUsa"
+    }
+  ],
+  "signals": [
+    {"name": "param_1", "update": "if(use_orangered,'blues','blueorange')"},
+    {
+      "name": "use_orangered",
+      "value": false,
+      "bind": {"input": "checkbox", "name": "Change Color Scale "}
+    }
+  ],
+  "marks": [
+    {
+      "name": "marks",
+      "type": "shape",
+      "style": ["geoshape"],
+      "from": {"data": "source_0"},
+      "encode": {
+        "update": {
+          "stroke": {"value": "white"},
+          "strokeWidth": {"value": 0.5},
+          "fill": {"scale": "color", "field": "rate"},
+          "tooltip": {
+            "signal": "{\"id\": isValid(datum[\"id\"]) ? datum[\"id\"] : \"\"+datum[\"id\"], \"rate\": format(datum[\"rate\"], \"\")}"
+          },
+          "ariaRoleDescription": {"value": "geoshape"},
+          "description": {
+            "signal": "\"Tasso di disoccupazione (%): \" + (format(datum[\"rate\"], \"\")) + \"; id: \" + (isValid(datum[\"id\"]) ? datum[\"id\"] : \"\"+datum[\"id\"]) + \"; rate: \" + (format(datum[\"rate\"], \"\"))"
+          }
+        }
+      },
+      "transform": [{"type": "geoshape", "projection": "projection"}]
+    }
+  ],
+  "scales": [
+    {
+      "name": "color",
+      "type": "linear",
+      "domain": {"data": "source_0", "field": "rate"},
+      "range": {"scheme": {"signal": "param_1"}},
+      "interpolate": "hcl",
+      "zero": false
+    }
+  ],
+  "legends": [
+    {
+      "title": "Tasso di disoccupazione (%)",
+      "fill": "color",
+      "direction": "horizontal",
+      "gradientLength": {"signal": "clamp(width, 100, 200)"}
+    }
+  ],
+  "config": {
+    "legend": {"orient": "bottom"},
+    "style": {"cell": {"stroke": null}, "group-title": {"fontSize": 16}}
+  }
+}

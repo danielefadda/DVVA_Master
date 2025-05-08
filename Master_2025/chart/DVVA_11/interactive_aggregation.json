@@ -1,0 +1,65 @@
+{
+    "config": {},
+    "layer": [
+      {
+        "data": {
+          "url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/movies.json"
+        },
+        "mark": {"type": "circle"},
+        "encoding": {
+          "x": {
+            "field": "IMDB_Rating",
+            "title": "IMDB Rating",
+            "type": "quantitative"
+          },
+          "y": {
+            "field": "Rotten_Tomatoes_Rating",
+            "title": "Rotten Tomatoes Rating",
+            "type": "quantitative"
+          }
+        },
+        "transform": [{"filter": "(datum['IMDB_Rating'] >= threshold)"}]
+      },
+      {
+        "data": {
+          "url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/movies.json"
+        },
+        "mark": {"type": "circle"},
+        "encoding": {
+          "size": {
+            "aggregate": "count",
+            "scale": {"domain": [0, 160]},
+            "type": "quantitative"
+          },
+          "x": {
+            "bin": {"maxbins": 10},
+            "field": "IMDB_Rating",
+            "type": "quantitative"
+          },
+          "y": {
+            "bin": {"maxbins": 10},
+            "field": "Rotten_Tomatoes_Rating",
+            "type": "quantitative"
+          }
+        },
+        "transform": [{"filter": "(datum['IMDB_Rating'] < threshold)"}]
+      },
+      {
+        "data": {"name": "empty"},
+        "mark": {"type": "rule", "color": "gray"},
+        "encoding": {
+          "strokeWidth": {"value": 6},
+          "x": {"type": "quantitative", "datum": {"expr": "threshold"}}
+        }
+      }
+    ],
+    "params": [
+      {
+        "name": "threshold",
+        "bind": {"input": "range", "max": 10, "min": 0, "step": 0.1},
+        "value": 5
+      }
+    ],
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json",
+    "datasets": {"empty": [{}]}
+  }

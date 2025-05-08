@@ -1,0 +1,163 @@
+{
+    "$schema": "https://vega.github.io/schema/vega/v5.json",
+    "background": "white",
+    "padding": 5,
+    "width": 300,
+    "height": 300,
+    "style": "cell",
+    "data": [
+      {"name": "param_91_store"},
+      {
+        "name": "source_0",
+        "url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/cars.json",
+        "format": {"type": "json"},
+        "transform": [
+          {
+            "type": "filter",
+            "expr": "isValid(datum[\"Horsepower\"]) && isFinite(+datum[\"Horsepower\"]) && isValid(datum[\"Miles_per_Gallon\"]) && isFinite(+datum[\"Miles_per_Gallon\"])"
+          }
+        ]
+      }
+    ],
+    "signals": [
+      {
+        "name": "unit",
+        "value": {},
+        "on": [
+          {"events": "pointermove", "update": "isTuple(group()) ? group() : unit"}
+        ]
+      },
+      {
+        "name": "param_91_Origin",
+        "value": null,
+        "bind": {
+          "input": "select",
+          "options": ["Europe", "Japan", "USA"],
+          "name": "Region "
+        }
+      },
+      {
+        "name": "param_91",
+        "update": "vlSelectionResolve(\"param_91_store\", \"union\", true, true)"
+      },
+      {
+        "name": "param_91_tuple",
+        "update": "param_91_Origin !== null ? {fields: param_91_tuple_fields, values: [param_91_Origin]} : null"
+      },
+      {
+        "name": "param_91_tuple_fields",
+        "value": [{"type": "E", "field": "Origin"}]
+      },
+      {
+        "name": "param_91_modify",
+        "on": [
+          {
+            "events": {"signal": "param_91_tuple"},
+            "update": "modify(\"param_91_store\", param_91_tuple, true)"
+          }
+        ]
+      }
+    ],
+    "marks": [
+      {
+        "name": "marks",
+        "type": "symbol",
+        "style": ["point"],
+        "interactive": true,
+        "from": {"data": "source_0"},
+        "encode": {
+          "update": {
+            "opacity": {"value": 0.7},
+            "fill": {"value": "transparent"},
+            "stroke": [
+              {
+                "test": "!length(data(\"param_91_store\")) || vlSelectionTest(\"param_91_store\", datum)",
+                "scale": "color",
+                "field": "Origin"
+              },
+              {"value": "lightgray"}
+            ],
+            "ariaRoleDescription": {"value": "point"},
+            "description": {
+              "signal": "\"Horsepower: \" + (format(datum[\"Horsepower\"], \"\")) + \"; Miles_per_Gallon: \" + (format(datum[\"Miles_per_Gallon\"], \"\")) + \"; Origin: \" + (isValid(datum[\"Origin\"]) ? datum[\"Origin\"] : \"\"+datum[\"Origin\"])"
+            },
+            "x": {"scale": "x", "field": "Horsepower"},
+            "y": {"scale": "y", "field": "Miles_per_Gallon"}
+          }
+        }
+      }
+    ],
+    "scales": [
+      {
+        "name": "x",
+        "type": "linear",
+        "domain": {"data": "source_0", "field": "Horsepower"},
+        "range": [0, {"signal": "width"}],
+        "nice": true,
+        "zero": true
+      },
+      {
+        "name": "y",
+        "type": "linear",
+        "domain": {"data": "source_0", "field": "Miles_per_Gallon"},
+        "range": [{"signal": "height"}, 0],
+        "nice": true,
+        "zero": true
+      },
+      {
+        "name": "color",
+        "type": "ordinal",
+        "domain": {"data": "source_0", "field": "Origin", "sort": true},
+        "range": "category"
+      }
+    ],
+    "axes": [
+      {
+        "scale": "x",
+        "orient": "bottom",
+        "gridScale": "y",
+        "grid": true,
+        "tickCount": {"signal": "ceil(width/40)"},
+        "domain": false,
+        "labels": false,
+        "aria": false,
+        "maxExtent": 0,
+        "minExtent": 0,
+        "ticks": false,
+        "zindex": 0
+      },
+      {
+        "scale": "y",
+        "orient": "left",
+        "gridScale": "x",
+        "grid": true,
+        "tickCount": {"signal": "ceil(height/40)"},
+        "domain": false,
+        "labels": false,
+        "aria": false,
+        "maxExtent": 0,
+        "minExtent": 0,
+        "ticks": false,
+        "zindex": 0
+      },
+      {
+        "scale": "x",
+        "orient": "bottom",
+        "grid": false,
+        "title": "Horsepower",
+        "labelFlush": true,
+        "labelOverlap": true,
+        "tickCount": {"signal": "ceil(width/40)"},
+        "zindex": 0
+      },
+      {
+        "scale": "y",
+        "orient": "left",
+        "grid": false,
+        "title": "Miles_per_Gallon",
+        "labelOverlap": true,
+        "tickCount": {"signal": "ceil(height/40)"},
+        "zindex": 0
+      }
+    ]
+  }

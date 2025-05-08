@@ -292,6 +292,9 @@ section.chapter {
   footer {
     display: none;
   }
+  header {
+    display: none;
+  }
 
   h1 {
     text-transform: uppercase;
@@ -573,6 +576,11 @@ section.big-text {
   }
 }
 
+.interactive-chart {
+  .vega-embed {
+    font-size:0.5rem;
+  }
+}
 /**** scegli tra image e vega charts ****/
 
 @media print {
