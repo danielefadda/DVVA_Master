@@ -40,7 +40,7 @@ paginate: true
 </div>
 
 
-<!-- This section introduces the concept of Tile Map Servers, which are essential for efficient delivery of geographic data for visualization -->
+<!-- This lecture introduces Altair's customization capabilities, covering its hierarchical approach to visualization styling. Altair is a declarative statistical visualization library for Python built on Vega-Lite, offering multiple levels of control from global themes to data-specific encodings. -->
 
 ---
 
@@ -53,6 +53,7 @@ paginate: true
 - Local configuration (affects each mark inside chart)
 - Encoding (element-specific attributes binded to data)
 
+<!-- Altair implements a hierarchical customization system with four distinct levels, from broadest to most specific scope. This layered approach allows for both consistent styling across multiple visualizations and precise control over individual visual elements, with more specific settings overriding more general ones when conflicts occur. -->
 
 ---
 
@@ -94,7 +95,7 @@ paginate: true
 </div>
 </div>
 
-<!-- Altair provides three distinct approaches to customization, each with different scopes and use cases. Global configs apply to all charts, local configs to specific charts, and encodings to specific visual elements. -->
+<!-- The customization hierarchy in Altair follows a principle of increasing specificity: top-level configurations establish session-wide defaults, global configurations customize entire chart objects, local configurations affect specific marks like bars or points, and encoding properties bind visual attributes directly to data fields. Understanding this hierarchy is key to efficiently styling visualizations. -->
 
 ---
 
@@ -103,7 +104,7 @@ paginate: true
 
 # Top Level Configuration
 
-<!-- Global configuration allows you to set default properties for all charts in your session, providing a consistent visual language across multiple visualizations. -->
+<!-- Top-level configuration provides the broadest scope of customization in Altair, affecting all charts created within the current session. This approach is particularly valuable for maintaining visual consistency across dashboards or reports with multiple visualizations. -->
 
 ---
 <!-- footer: '' -->
@@ -141,7 +142,7 @@ chart2 = alt.Chart(data).mark_line().encode(...)
 </div>
 </div>
 
-<!-- Global configuration is useful when creating dashboards or reports with multiple charts that should share the same visual style. It reduces repetitive code and ensures consistency. -->
+<!-- Top-level configuration modifies the alt.config object to establish default styles for all charts created afterward in the session. This approach is ideal for implementing brand guidelines or ensuring visual consistency across a collection of visualizations. While these settings serve as defaults, they can be overridden by more specific configurations when needed. -->
 
 ---
 <!-- footer: '' -->
@@ -194,7 +195,7 @@ alt.config.mark = {
 
 </div>
 
-<!-- Global configuration can be applied to various components of the visualization, from view properties to axis styling, legends, and default mark properties. This allows for comprehensive control over the default appearance of all charts. -->
+<!-- The alt.config object provides comprehensive control over all aspects of chart appearance. From view dimensions and backgrounds to axis styling, legends, and default mark properties, top-level configuration establishes a consistent foundation for all visualizations. This approach minimizes repetitive styling code while maintaining visual cohesion across multiple charts. -->
 
 ---
 
@@ -203,7 +204,7 @@ alt.config.mark = {
 
 # Global Configuration
 
-<!-- Local configuration provides chart-specific styling, allowing customization of individual visualizations without affecting others. -->
+<!-- Global configuration narrows the customization scope to specific chart instances. Using chainable configure_*() methods, this level allows you to override top-level settings for individual charts, creating distinct visual treatments while maintaining the overall design system. -->
 
 ---
 <!-- _paginate: false -->
@@ -226,7 +227,7 @@ chart = alt.Chart(data).mark_bar().encode(
 )
 ```
 
-<!-- Local configuration allows for customizing individual charts without affecting others. This is useful when you need specific charts to stand out or have unique styling requirements within a collection of visualizations. -->
+<!-- Global configuration applies specifically to a chart instance through chainable configure_*() methods. This level lets you override top-level defaults for individual charts, making them stand out within a collection or adapting them to specific data characteristics. The methods can be chained together to create comprehensive chart-specific styling. -->
 
 ---
 <!-- footer: '' -->
@@ -269,7 +270,7 @@ chart = alt.Chart(data).mark_bar().encode(
 
 </div>
 
-<!-- Altair provides numerous configuration methods for different chart components. Each method targets specific visual elements, allowing for granular control over the chart's appearance. -->
+<!-- Altair provides a rich set of global configuration methods for customizing every aspect of a chart. Each method focuses on a specific chart component, from the overall view to axes, legends, titles, and marks. These methods give you fine-grained control over the chart's appearance while keeping the code clean and readable through method chaining. -->
 
 ---
 <!-- paginate: false -->
@@ -297,7 +298,7 @@ chart = alt.Chart(data).mark_line().encode(
 
 ![width:400 center](img/view_config.png)
 
-<!-- View configuration allows you to control the visual container of your chart, including its borders, background, and dimensions. This is useful for integrating charts into different UI contexts or achieving specific design effects. -->
+<!-- The configure_view() method controls the chart's container appearance, including borders, background color, dimensions, and other visual properties. This method is particularly important for integrating charts into applications or dashboards, as it determines how the chart fits within its surrounding context. Properties like cornerRadius and strokeWidth add subtle design refinements. -->
 
 ---
 
@@ -330,7 +331,7 @@ chart = alt.Chart(source).mark_circle(size=60).encode(
 
 ```
 
-<!-- This example demonstrates how multiple configuration methods can be chained together to fully customize a chart. Each method targets a specific component, creating a cohesive and well-styled visualization. -->
+<!-- This example demonstrates the power of combining multiple global configuration methods to create a cohesive and professional chart design. By chaining methods for title, axis, and legend styling, you can create a comprehensive visual treatment that enhances data communication while maintaining a clean, elegant appearance. The method chaining syntax keeps the code readable despite complex customization. -->
 
 ---
 
@@ -339,7 +340,7 @@ chart = alt.Chart(source).mark_circle(size=60).encode(
 
 # Local Properties
 
-<!-- Local properties provide the most specific level of customization, allowing for detailed control over individual visual elements. -->
+<!-- Local properties focus on customizing specific marks within a chart, such as bars, points, or lines. These settings allow you to control the appearance of visual elements independently of the data they represent, providing an intermediate level of specificity between global chart settings and data-driven encodings. -->
 
 ---
 <!-- footer: 'Customization in Altair <mark>DVVA<mark>' -->
@@ -366,6 +367,8 @@ chart = alt.Chart(data).mark_bar(
 )
 ```
 
+<!-- Local properties apply to specific mark types through the mark_*() methods, controlling the appearance of the visual elements independent of the data they represent. These properties override both top-level and global configurations, providing an intermediate level of customization. The mark type determines how data points are visually encoded (bars, lines, points), while mark properties control their visual attributes. -->
+
 ---
 
 | Mark | Method | Description |
@@ -379,6 +382,8 @@ chart = alt.Chart(data).mark_bar(
 | Line | `mark_line()` | A line plot. |
 | Point | `mark_point()` | A scatter plot with configurable point shapes. |
 | Rect | `mark_rect()` | A filled rectangle, used for heatmaps |
+
+<!-- Altair provides a diverse set of mark types for visualizing different data relationships. Each mark type is optimized for specific data patterns: bars for comparisons across categories, lines for trends over time, points for examining relationships between variables, and specialized marks like geoshapes for spatial data. The choice of mark type is fundamental to effective data visualization. -->
 
 ---
 
@@ -397,6 +402,7 @@ chart = alt.Chart(data).mark_bar(
 
 Properties for primitive mark types, like position, color, and stroke are listed in the [documentation](https://altair-viz.github.io/user_guide/marks/index.html)
 
+<!-- Beyond the basic mark types, Altair offers specialized marks for specific analytical needs: rules for reference lines, text for adding labels, and composite marks like boxplots and errorbars for statistical summaries. Each mark type supports specific properties that control its appearance, from colors and sizes to strokes and opacities. The comprehensive documentation provides the full list of available properties for each mark type. -->
 
 ---
 <!-- _class: chapter -->
@@ -404,7 +410,7 @@ Properties for primitive mark types, like position, color, and stroke are listed
 
 # Encoding Properties
 
-<!-- Encoding properties provide the most specific level of customization, allowing for detailed control over  visual elements encoded by data -->
+<!-- Encoding properties represent the most specific level of customization in Altair, binding visual attributes directly to data fields. This approach provides the finest control over how data values are mapped to visual properties, allowing for data-driven styling that adapts to the underlying information. -->
 
 ---
 <!-- footer: 'Customization in Altair <mark>DVVA<mark>' -->
@@ -424,7 +430,7 @@ chart = alt.Chart(data).mark_bar().encode(
 )
 ```
 
-<!-- Encoding properties provide the most granular control, allowing you to customize specific visual channels independently. This is useful for emphasizing particular aspects of the data or accommodating specific data properties. -->
+<!-- Encoding properties provide the most granular level of customization by binding visual attributes directly to data fields. This approach enables data-driven styling that adapts to the underlying information. By using the encode() method with specific channel objects like alt.X or alt.Color, you can precisely control how each data dimension is visually represented, including its axis, scale, and legend properties. -->
 
 ---
 <!-- footer: '' -->
@@ -477,7 +483,7 @@ size=alt.Size('population:Q',
 
 </div>
 
-<!-- Encoding properties allow for detailed customization of specific channels like position, color, size, and shape. Each channel can have its own axis, scale, and legend properties, providing precise control over how data is visually represented. -->
+<!-- Each encoding channel in Altair (position, color, size, etc.) can be customized with its own properties. Axis customization controls how axis labels and gridlines appear, scale definitions determine how data values map to visual properties, and legend configurations control the appearance and position of legends. These specific settings allow for precise control over how each data dimension is represented visually. -->
 
 ---
 <!-- _paginate: false -->
@@ -517,7 +523,7 @@ size=alt.Size('population:Q',
 
 **N.B.** Combine approaches as needed. Most specific settings take precedence over more general ones.
 
-<!-- Choosing the right approach depends on your specific needs. Global configs are best for consistency across charts, local configs for individual charts, and encodings for specific visual elements. A combination of approaches is often the most effective strategy. -->
+<!-- Choosing the right customization approach depends on your specific needs and the scope of your visualization project. Top-level settings are ideal for establishing consistent defaults, global configurations for customizing specific charts, local properties for targeting mark types, and encodings for data-specific styling. The layered nature of Altair's customization system allows you to combine approaches effectively, with more specific settings overriding more general ones when conflicts occur. -->
 
 ---
 
@@ -526,7 +532,7 @@ size=alt.Size('population:Q',
 
 # Chart Themes
 
-<!-- Themes provide a quick way to apply consistent styling across visualizations, offering predefined configurations for different design needs. -->
+<!-- Chart themes provide predefined style configurations that can be applied across all visualizations in a session. They offer a quick way to achieve a consistent visual identity, whether following established publication styles or implementing custom brand guidelines. -->
 
 ---
 
@@ -546,7 +552,7 @@ size=alt.Size('population:Q',
 alt.themes.enable('dark')  # Enable dark theme for all subsequent charts
 ```
 
-<!-- Themes in Altair offer a quick way to apply consistent, professionally designed styles to your visualizations. They're useful for matching your charts to specific publication styles or creating visually cohesive dashboards. -->
+<!-- Themes in Altair provide a comprehensive way to apply predefined style configurations to all charts in a session. Built-in themes emulate the visual styles of well-known publications like FiveThirtyEight or the LA Times, offering professional-looking visualizations with minimal effort. Enabling a theme affects all subsequently created charts, establishing a consistent visual identity throughout your analysis or presentation. -->
 
 ---
 <!-- footer: '' -->
@@ -587,7 +593,7 @@ alt.themes.register('my_theme', my_custom_theme)
 alt.themes.enable('my_theme')
 ```
 
-<!-- Custom themes allow you to define your own set of styling rules, which can incorporate your organization's brand guidelines or personal preferences. Once registered, they can be easily applied to all your visualizations. -->
+<!-- Creating custom themes allows you to define comprehensive style configurations that match your organization's brand guidelines or personal preferences. The theme function returns a configuration object that sets defaults for all aspects of chart appearance, from view dimensions to typography, colors, and axis styling. Once registered, custom themes can be applied just like built-in themes, providing a consistent visual identity for all your visualizations. -->
 
 ---
 <!-- _paginate: false -->
@@ -605,7 +611,7 @@ alt.themes.enable('my_theme')
 
 
 
-<!-- Different themes can dramatically change the appearance of the same visualization, affecting everything from colors to fonts and grid lines. Choosing the right theme can enhance the readability and impact of your data visualization. -->
+<!-- Different themes dramatically transform the visual appearance of charts while maintaining the same underlying data representation. The FiveThirtyEight theme features a distinctive style with bold colors and minimal gridlines, optimized for clear data communication in digital media. The Urban Institute theme uses a more formal approach with a restrained color palette suitable for policy-oriented reports and presentations. -->
 
 ---
 
@@ -653,7 +659,7 @@ Save locally or embed in documents
 <div>
 </div>
 
-<!-- Altair provides flexible options for saving and sharing your visualizations, whether you need interactive web versions, publication-quality images, or editable vector graphics. Different formats serve different purposes, from web embedding to print publication. -->
+<!-- Altair provides flexible options for saving and sharing visualizations in various formats, each serving different purposes. HTML preserves interactivity for web embedding, PNG offers universal compatibility for presentations, SVG provides high-quality vector graphics for publications, and JSON exports the Vega-Lite specification for further customization or integration with other tools. Additional parameters like scale_factor can be used to fine-tune output quality. -->
 
 ---
 
@@ -687,7 +693,7 @@ chart = alt.Chart(source).mark_line().encode(
 
 ```
 
-<!-- This comprehensive example demonstrates how to combine themes, properties, and configurations to create a fully customized visualization. It shows the power of Altair's layered customization approach, from theme selection to specific encoding properties. -->
+<!-- This comprehensive example demonstrates how to combine multiple levels of customization for a polished visualization. It begins with a theme for baseline styling, uses encoding properties for data-specific customization of axes and colors, sets chart properties for dimensions and title, and applies global configurations for fine-tuning. This layered approach creates a professional-quality visualization that effectively communicates the data while maintaining visual appeal. -->
 
 ---
 
@@ -697,4 +703,4 @@ chart = alt.Chart(source).mark_line().encode(
 
 ![bg contains](img/DVVA_12/synthwave.jpg)
 
-<!-- This presentation covered the various approaches to customizing visualizations in Altair, from global configurations to specific encodings, along with themes and export options. These tools provide powerful ways to create effective, visually appealing data visualizations. -->
+<!-- This presentation covered Altair's hierarchical customization system, from top-level themes to data-specific encodings. Understanding these different levels of customization—and when to use each—enables you to create visually consistent, professional-quality visualizations that effectively communicate your data. By combining these approaches strategically, you can develop your own distinctive visualization style while maintaining the flexibility to adapt to specific data requirements. -->
