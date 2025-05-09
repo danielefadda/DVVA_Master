@@ -11,7 +11,7 @@ paginate: true
 <!-- _paginate: skip -->
 
 <div>
-  <h1>12 •  Custom Altair Charts</h1>
+  <h1>13 •  Custom Altair Charts</h1>
   <h2>Data Visualization and Visual Analytics</h2>
   <!-- <div class="subtitle">A subtitle</div> -->
 
@@ -601,11 +601,11 @@ alt.themes.enable('my_theme')
 
 **Fivethirtyeight theme**
 
-![width:600 ](img/DVVA_12/fivethirtyeight.png)
+![width:600 ](img/DVVA_13/fivethirtyeight.png)
 
 **Urbaninstitute theme**
 
-![width:600 ](img/DVVA_12/urbaninstitute.png)
+![width:600 ](img/DVVA_13/urbaninstitute.png)
 
 
 
@@ -701,6 +701,6 @@ chart = alt.Chart(source).mark_line().encode(
 
 <h1>Thank You!</h1>
 
-![bg contains](img/DVVA_12/synthwave.jpg)
+![bg contains](img/DVVA_13/synthwave.jpg)
 
 <!-- This presentation covered Altair's hierarchical customization system, from top-level themes to data-specific encodings. Understanding these different levels of customization—and when to use each—enables you to create visually consistent, professional-quality visualizations that effectively communicate your data. By combining these approaches strategically, you can develop your own distinctive visualization style while maintaining the flexibility to adapt to specific data requirements. -->
