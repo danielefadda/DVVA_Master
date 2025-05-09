@@ -17,7 +17,7 @@ paginate: true
 <!-- _paginate: skip -->
 
 <div>
-  <h1>11 • Visual Storytelling</h1>
+  <h1>11 • Interactive Visualization</h1>
   <h2>Data Visualization and Visual Analytics</h2>
   <!-- <div class="subtitle">A subtitle</div> -->
 
@@ -42,7 +42,7 @@ paginate: true
 
 
 <div class="cover-image">
-<img src="img/va_lesson3_vision_perception_Page_02_Image_0003.jpg" alt="" style="width:90%">
+<img src="https://altair-viz.github.io/_static/altair-logo-light.png" alt="" style="width:90%">
 </div>
 
 ---
@@ -720,6 +720,7 @@ paginate: true
 
 <h1>Thank You!</h1>
 
-![bg contains](https://via.placeholder.com/800x500)
+
+![bg contains](https://altair-viz.github.io/_static/altair-logo-light.png)
 
 <!-- This concludes our exploration of interaction techniques for visualization. These techniques, when properly implemented, can significantly enhance the analytical power of visualizations. -->
