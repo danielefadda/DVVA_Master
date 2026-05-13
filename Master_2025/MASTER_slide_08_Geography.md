@@ -30,7 +30,7 @@ paginate: true
     <strong>University of Pisa</strong><br>
     Department of Computer Science<br>
     Course: Data Visualization & Visual Analytics<br>
-    Academic Year: 2025    
+    Academic Year: {{ACADEMIC_YEAR}}    
   </div>
 
 </div>
