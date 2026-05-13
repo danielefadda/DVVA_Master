@@ -1,0 +1,10 @@
+{
+  "name": "dvva-master-2025",
+  "private": true,
+  "scripts": {
+    "serve": "npx @marp-team/marp-cli@latest -s .",
+    "pdf": "npx @marp-team/marp-cli@latest --pdf",
+    "html": "npx @marp-team/marp-cli@latest --html",
+    "pptx": "npx @marp-team/marp-cli@latest --pptx"
+  }
+}
