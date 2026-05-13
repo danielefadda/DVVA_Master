@@ -35,6 +35,7 @@ paginate: true
 
 </div>
 
+![width:500 ](https://altair-viz.github.io/_static/altair-logo-light.png)
 
 
 <div class="cover-image">
