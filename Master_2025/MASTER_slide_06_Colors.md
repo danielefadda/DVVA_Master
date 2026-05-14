@@ -453,6 +453,97 @@ HSLuv project provides utilities to colors among different color spaces
 <!-- This slide demonstrates the critical difference between naïve color interpolation in standard RGB space versus interpolation in perceptually uniform color spaces. The top image shows direct interpolation in sRGB, which creates uneven perceptual steps with an artificial brightness dip in the middle range. The middle image shows interpolation in a perceptually uniform color space, which creates visually even transitions. This difference is crucial for data visualization, where uneven perceptual steps can lead to misinterpretation of data. The HSLuv project mentioned provides tools to work with perceptually uniform color spaces, helping designers create more accurate and effective color scales for data visualization. -->
 
 ---
+# THE PROBLEM WITH NON-UNIFORM SCALES
+
+<div class="columns-2">
+
+<div>
+
+- **Mathematical vs. Perceptual**
+  - RGB/HSV are based on hardware or simple geometry, not human vision.
+- **The "Rainbow" Artifacts**
+  - Brightness fluctuates wildly across the scale.
+  - Creates "false boundaries" (e.g., the yellow band in a rainbow looks like a sharp edge, while green looks like a wide plateau).
+- **Data Misinterpretation**
+  - Equal data intervals do not look like equal color changes.
+
+</div>
+
+<div>
+
+![height:350 center](img/DVVA_06/jet_vs_sineform.png)
+<div class="small-text" style="text-align:center">The same data viewed with Rainbow (top) vs. a uniform scale (bottom).</div>
+
+</div>
+
+</div>
+
+<!-- This slide highlights the problems with using non-uniform color scales, such as the commonly used "rainbow" palette. These scales are based on hardware or simple geometric models rather than human vision, leading to significant perceptual issues. The brightness fluctuations create false boundaries that can mislead viewers into seeing patterns that aren't there. For example, the yellow band in a rainbow palette may appear as a sharp edge, while the green band may look like a wide plateau, even if the underlying data changes uniformly. This can lead to misinterpretation of data, where equal intervals in the data do not correspond to equal perceptual changes in color. Visualization designers should avoid non-uniform scales and instead use perceptually uniform color spaces for accurate data representation. -->
+
+---
+# CIELab COLOR SPACE (CIE L*a*b*)
+
+<div class="columns-2">
+
+<div>
+
+- **Structure:**
+  - **L* (Lightness):** 0 (black) to 100 (white).
+  - **a*:** Green (-) to Red (+).
+  - **b*:** Blue (-) to Yellow (+).
+- **Design Philosophy:**
+  - Designed to be **perceptually uniform**: a change of a certain amount in a value should result in a similar change in perception.
+  - Based on the **Opponent Color Theory** (Slide 14).
+- **Device Independent:** Unlike RGB, it represents colors regardless of the screen.
+
+</div>
+
+<div>
+
+![height:500 center](https://upload.wikimedia.org/wikipedia/commons/2/21/Lab_color_space.png)
+
+
+</div>
+
+</div>
+
+<!--
+This slide introduces the CIELab color space, a widely used color space designed to be perceptually uniform. The L* component represents lightness, while a* and b* represent color-opponent dimensions (green-red and blue-yellow, respectively). The design of CIELab is based on the Opponent Color Theory, aiming to ensure that equal changes in the color space correspond to equal perceptual differences. This makes CIELab particularly useful for data visualization, as it allows for more accurate representation of data values through color. Additionally, CIELab is device-independent, meaning it can represent colors consistently across different screens and media, unlike RGB which is device-dependent.
+-->
+
+---
+# MEASURING DIFFERENCE: $\Delta E$ AND CIELuv
+
+<div class="columns-2">
+
+<div>
+
+- **Color Difference ($\Delta E$):**
+  - Defined as the Euclidean distance between two points in Lab space:
+  $$\Delta E = \sqrt{(L_2-L_1)^2 + (a_2-a_1)^2 + (b_2-b_1)^2}$$
+  - $\Delta E \approx 2.3$ is the "Just Noticeable Difference" (JND).
+
+- **Color Difference ($\Delta E_{94}$)**
+  - Accounts for perceptual non-uniformities in the Lab space.
+  $$\Delta E_{94} = \sqrt{\left(\frac{\Delta L^*}{k_L S_L}\right)^2 + \left(\frac{\Delta C^*}{k_C S_C}\right)^2 + \left(\frac{\Delta H^*}{k_H S_H}\right)^2}$$
+  - Where $\Delta L^*$, $\Delta C^*$, and $\Delta H^*$ are the differences in lightness, chroma, and hue, respectively, and $k_L$, $k_C$, and $k_H$ are weighting factors.
+- **CIELuv:**
+  - An alternative to CIELab optimized for **additive colors** (light-emitting displays/monitors).
+  - Often used in computer graphics for calculating gradients and color bars.
+
+</div>
+
+<div>
+
+![height:350 center](img/DVVA_06/1280px-CIE_1976_UCS.png)
+
+
+</div>
+
+</div>
+<!-- This slide explains how to measure color differences using the $\Delta E$ metric in the CIELab color space. The basic $\Delta E$ formula calculates the Euclidean distance between two colors, with a value of approximately 2.3 representing the Just Noticeable Difference (JND) for human perception. The $\Delta E_{94}$ formula is an improved version that accounts for perceptual non-uniformities in the Lab space, providing a more accurate measure of color difference. Additionally, the slide introduces CIELuv, an alternative color space optimized for additive colors, which is often used in computer graphics for tasks like calculating gradients and color bars. Understanding these concepts is crucial for designing effective color schemes in data visualization that are both perceptually uniform and accessible. -->
+
+---
 
 # CATEGORIES OF COLORS
 
