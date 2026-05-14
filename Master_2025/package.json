@@ -1,0 +1,11 @@
+{
+  "name": "dvva-master-2025",
+  "private": true,
+  "scripts": {
+    "preprocess": "node ./scripts/preprocess-slides.mjs",
+    "serve": "npm run preprocess && npx @marp-team/marp-cli@latest -s ./.rendered",
+    "pdf": "npm run preprocess && npx @marp-team/marp-cli@latest --pdf ./.rendered/*.md",
+    "html": "npm run preprocess && npx @marp-team/marp-cli@latest --html ./.rendered/*.md",
+    "pptx": "npm run preprocess && npx @marp-team/marp-cli@latest --pptx ./.rendered/*.md"
+  }
+}

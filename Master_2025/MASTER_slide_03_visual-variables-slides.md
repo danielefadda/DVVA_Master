@@ -29,7 +29,7 @@ paginate: true
     <strong>University of Pisa</strong><br>
     Department of Computer Science<br>
     Course: Visual Analytics (602AA)<br>
-    Academic Year: 2024/2025    
+    Academic Year: {{ACADEMIC_YEAR}}    
   </div>
 
 </div>

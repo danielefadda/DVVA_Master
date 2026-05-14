@@ -40,6 +40,7 @@
 
 /Master_2025/*.pdf
 /Master_2025/*.html
+/Master_2025/.rendered/
 
 # Ignore all files in .ipynb_checkpoints folders
 **/.ipynb_checkpoints/*
