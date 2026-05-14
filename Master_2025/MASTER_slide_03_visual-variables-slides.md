@@ -454,8 +454,8 @@ We should be careful when using color and consider cultural associations and acc
   .check-green {
     background-color: #c2dba3;
   }
-  .check-gray {
-    background-color: #d9d9d9;
+  .check-lightgreen {
+    background-color: #c8dab2;
   }
   .check-darkgray {
     background-color:rgb(190, 190, 190);
@@ -497,35 +497,35 @@ We should be careful when using color and consider cultural associations and acc
       <td>Position</td>
       <td class="check-green">✓</td>
       <td class="check-green">✓</td>
-      <td class="check-darkgray">✓</td>
+      <td class="check-green">✓</td>
     </tr>
     <tr>
       <td>Size</td>
-      <td class="check-gray">✓</td>
-      <td class="check-light">✓</td>
+      <td class="check-lightgreen">✓</td>
+      <td class="check-lightgreen">✓</td>
       <td class="tilde-orange">~</td>
     </tr>
     <tr>
       <td>Value (intensity)</td>
-      <td class="check-darkgray">✓</td>
       <td class="check-green">✓</td>
-      <td class="tilde-green">~</td>
+      <td class="check-green">✓</td>
+      <td class="tilde-orange">~</td>
     </tr>
     <tr>
       <td>Texture</td>
-      <td class="check-gray">✓</td>
-      <td class="tilde-light">~</td>
+      <td class="check-green">✓</td>
+      <td class="tilde-orange">~</td>
       <td class="x-pink">✗</td>
     </tr>
     <tr>
       <td>Color</td>
       <td class="check-green">✓</td>
-      <td class="x-orange">✗</td>
-      <td class="x-orange">✗</td>
+      <td class="x-red">✗</td>
+      <td class="x-red">✗</td>
     </tr>
     <tr>
       <td>Orientation</td>
-      <td class="check-gray">✓</td>
+      <td class="check-green">✓</td>
       <td class="x-pink">✗</td>
       <td class="x-pink">✗</td>
     </tr>
