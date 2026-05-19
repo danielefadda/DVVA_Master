@@ -1,0 +1,25 @@
+<svg viewBox="0 0 800 400" width="100%" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .text-title { font-family: system-ui, -apple-system, sans-serif; font-size: 24px; font-weight: 600; fill: #1f2937; text-anchor: middle; }
+    .text-label { font-family: system-ui, -apple-system, sans-serif; font-size: 18px; fill: #4b5563; text-anchor: middle; }
+    .circle-base { fill: #3b82f6; opacity: 0.9; }
+    .circle-anim { fill: #ef4444; opacity: 0.8; }
+    .dashed-line { stroke: #9ca3af; stroke-width: 2; stroke-dasharray: 6 6; fill: none; }
+  </style>
+
+  <g transform="translate(250, 200)">
+    <circle cx="0" cy="0" r="50" class="circle-base" />
+    <line x1="0" y1="0" x2="50" y2="0" stroke="#1e3a8a" stroke-width="2" />
+    <text x="25" y="-10" font-family="sans-serif" font-size="14" fill="#1e3a8a" text-anchor="middle">r=2</text>
+  </g>
+  <text x="250" y="300" class="text-label">Data = 2</text>
+
+  <g transform="translate(550, 200)">
+    <circle cx="0" cy="0" r="100" class="dashed-line" />
+    
+    <circle cx="0" cy="0" r="50" class="circle-anim">
+      <animate attributeName="r" values="50; 100; 100; 50; 50" dur="6s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1; 0 0 1 1; 0.4 0 0.2 1; 0 0 1 1" />
+    </circle>
+  </g>
+  <text x="550" y="340" class="text-label">Data = 4</text>
+</svg>

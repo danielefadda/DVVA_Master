@@ -564,6 +564,20 @@ section.big-text {
   }
 }
 
+/* No bullet per le liste in caso di reveal */
+section.reveal ul,
+section.reveal ol {
+    list-style-type: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+/* Opzionale: assicura che il reset si applichi anche ai list item 
+   nel caso in cui altri stili (es. framework esterni) agiscano direttamente sui <li> */
+.reveal li {
+    list-style-type: none;
+}
+
 /**** table-numbers into code ****/
 
 .table-numbers {
