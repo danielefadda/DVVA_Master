@@ -42,7 +42,7 @@ paginate: true
 
 
 <div class="cover-image">
-<img src="https://altair-viz.github.io/_static/altair-logo-light.png" alt="" style="width:90%">
+<img src="img/DVVA_11/caffettiera.jpg" alt="" style="width:90%">
 </div>
 
 ---
@@ -720,7 +720,6 @@ paginate: true
 
 <h1>Thank You!</h1>
 
-
-![bg contains](https://altair-viz.github.io/_static/altair-logo-light.png)
+![bg contains](img/DVVA_11/telefono-sirio.jpg)
 
 <!-- This concludes our exploration of interaction techniques for visualization. These techniques, when properly implemented, can significantly enhance the analytical power of visualizations. -->

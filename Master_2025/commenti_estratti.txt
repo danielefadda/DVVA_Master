@@ -1,0 +1,408 @@
+<div>
+  <h1>11 • Interactive Visualization</h1>
+  <h2>Data Visualization and Visual Analytics</h2>
+  <!-- <div class="subtitle">A subtitle</div> -->
+<!-- L'interazione è importante perché consente agli utenti di esplorare i dati in modi che non sarebbero possibili con immagini statiche.
+[00:00:02:11 - 00:00:43:13]
+Possiamo impiegare diverse tecniche di visualizzazione per applicare raffinamenti o mostrare maggiori dettagli in un sottoinsieme specifico di dati, riducendo il numero di dimensioni utilizzate rispetto alla totalità. In questo modo, le variazioni cromatiche possono essere derivate considerando tutte le dimensioni contemporaneamente. Un aspetto cruciale dell'interazione è la possibilità di gestire i dati per applicare differenti tipi di aggregazione.
+
+[00:00:43:15 - 00:01:26:14]
+Questo consente di gestire diverse tipologie di selezione. Di conseguenza, possiamo sfruttare l'aggregazione e la trasformazione dei dati per — come si è visto anche nell'esercizio odierno — calcolare conteggi, medie, somme, minimi, massimi e così via. Modificare i dati in questo modo influenza direttamente gli elementi che verranno visualizzati, ad esempio, nel grafico a barre della popolazione per regione.
+
+[00:01:26:15 - 00:01:51:12]
+Fondamentalmente, estraiamo tutti i dati e ne ricaviamo una versione semplificata. D'altra parte, possiamo usare le viste — ovvero la visualizzazione stessa — per guidare la trasformazione dei dati. A quel punto è possibile, ad esempio, selezionare una specifica regione per analizzarne la composizione interna e osservare come i dati si scompongono.
+
+[00:01:51:12 - 00:02:25:14]
+Questi accorgimenti abilitano operazioni analitiche più avanzate. Una vista combinata di questo tipo è estremamente utile da un punto di vista analitico per un data scientist, ma mantiene un grande valore anche per l'utente generico che esplora i sottoinsiemi del dataset attraverso l'interazione.
+
+ -->
+<!-- Queste cinque categorie rappresentano i principali modi in cui gli utenti interagiscono con le visualizzazioni. Ognuna serve scopi analitici diversi e permette di ottenere tipi di insight differenti. 
+
+[00:02:25:14 - 00:02:57:00]
+Per quanto riguarda la navigazione e l'esplorazione dei dati, possiamo distinguere le macro-categorie dell'interazione in cinque classi principali. La prima consiste nel modificare il modo in cui i dati vengono rappresentati, ad esempio applicando una regressione, una proiezione, un potenziamento visivo o componendo campi diversi.
+
+[00:02:57:03 - 00:03:26:05]
+Prendiamo come esempio il primissimo test effettuato sui dati meteorologici: la prima modifica della rappresentazione è stata la mappatura degli attributi di mese e giorno in un unico indicatore, come il giorno del mese. Possiamo anche focalizzarci per ottenere maggiori dettagli su una parte specifica del dataset, operazione che in parte eseguiamo tramite lo zoom.
+
+[00:03:26:06 - 00:04:07:00]
+In questo contesto, lo zoom rappresenta un modo efficace per concentrarsi sui dati, definendo un sottoinsieme specifico all'interno dello spazio di ricerca di nostro interesse. Di solito, questo processo implica un concetto di navigazione che non è soltanto visiva, ma anche cognitiva: l'utente deve essere sempre consapevole di quale porzione di dati stava osservando e verso quale direzione si sta muovendo.
+
+[00:04:07:01 - 00:04:38:10]
+Per quanto riguarda la trasformazione dei dati, abbiamo riscontrato più volte operazioni come l'aggregazione o il calcolo dei campi di densità; anche queste procedure possono essere guidate direttamente dalla visualizzazione. La selezione e il filtraggio dei dati sono strettamente correlati a questo secondo aspetto.
+
+[00:04:38:10 - 00:05:05:13]
+Nello specifico, andiamo a selezionare un sottointervallo per un determinato attributo, utilizzandolo per filtrare la vista o per concentrarci su un insieme circoscritto. Diventa poi possibile individuare lo stesso elemento grafico in viste multiple: se utilizziamo il medesimo dataset, questo può essere osservato da prospettive differenti.
+
+[00:05:06:00 - 00:05:23:09]
+Ad esempio, sarebbe utile disporre di una funzionalità che permetta di selezionare un punto in una determinata vista e ottenere un'evidenziazione automatica dello stesso elemento all'interno di tutte le altre visualizzazioni collegate.
+
+-->
+<!-- _class: chapter -->
+<!-- _paginate: skip -->
+<!-- In questa sezione vediamo come gli utenti possono cambiare il modo in cui i dati vengono rappresentati visivamente. -->
+
+---
+
+# Changing Visual Representation
+
+- Allows viewing same data from different perspectives
+- Supports different analytical tasks
+- Examples:
+  - From time plot to 2D time chart (linear vs. cyclic time)
+  - From bar graph to pie chart (comparison vs. part-to-whole)
+  - From position-based encoding to color-based encoding
+
+<!-- Cambiare la rappresentazione visiva aiuta gli utenti a vedere i dati da prospettive diverse, specifiche per il compito che stanno svolgendo. Visualizzazioni diverse rivelano pattern e relazioni diversi negli stessi dati. 
+
+[00:05:23:10 - 00:06:10:07]
+Nell'ambito della rappresentazione dei dati, possiamo sfruttare l'interattività per modificare il modo in cui le informazioni vengono mappate. Questa dinamica rientra nelle scelte di design che compiamo durante la modellazione concettuale, combinando mappatura e visualizzazione in modo che il processo possa essere ripensato dinamicamente durante l'esplorazione stessa. Un esempio classico, mostrato all'inizio, riguarda la gestione del tempo.
+
+-->
+<!-- Questi esempi mostrano come gli stessi dati possano essere rappresentati in modo diverso — come una sequenza temporale continua oppure come un pattern ciclico — rivelando aspetti differenti dei dati temporali. 
+[00:06:10:07 - 00:06:43:14]
+Il tempo può essere rappresentato secondo una direzione lineare continua oppure secondo una struttura ciclica. In questa macro-categoria rientra probabilmente anche la possibilità di modificare la vista ed interagire con essa attraverso manipolazioni dirette e semplici.
+
+-->
+<!-- Queste operazioni ci permettono di adattare la rappresentazione visiva alle proprietà dei dati, alle capacità del mezzo di visualizzazione e ai compiti di analisi specifici che vogliamo svolgere. 
+
+[00:06:43:15 - 00:07:22:02]
+Un esempio è il grafico reattivo (reactive chart): quando si modificano le dimensioni della finestra, il grafico si adatta e si riposiziona automaticamente. Analogamente, durante le operazioni di zoom o di panning, le scale degli assi si aggiornano di conseguenza. È inoltre possibile modificare altri parametri o passare da una tipologia di grafico a un'altra.
+
+-->
+<!-- _class: chapter -->
+<!-- _paginate: skip -->
+<!-- In questa sezione parliamo delle tecniche di interazione che permettono agli utenti di concentrarsi su dati specifici e di ottenere informazioni più dettagliate. -->
+
+---
+
+# Accessing Exact Data Values
+
+<div class="columns-2">
+<div>
+
+- Standard tooltip functionality
+- Popup windows activated by pointing/hovering
+- Can include:
+  - Data values
+  - Additional contextual information
+  - References
+  - Calculation details
+  - Sub-visualizations
+</div>
+<div>
+<div>
+
+  <div class="interactive-chart" id="tooltip">
+  </div>
+
+  <div class="img-chart">
+  <img src="img/DVVA_11/tooltips.png" alt=""/>
+  </div>
+
+  </div>
+  <script>
+  insertChart('tooltip', './chart/DVVA_11/tooltip.json', '100%', '450px');
+  </script>
+
+</div>
+</div>
+</div>
+
+
+<!-- L'accesso ai valori esatti è una funzionalità di interazione fondamentale: colma il divario tra la rappresentazione visiva e l'informazione numerica precisa. 
+
+[00:07:22:03 - 00:07:58:13]
+Le funzioni di focusing e detailing rappresentano la finalità principale dei tooltip analizzati finora. Questa funzionalità consente di muoversi lungo il grafico e ottenere uno zoom visivo focalizzato, guidato direttamente dall'utente per estrarre informazioni di maggior valore.
+
+[00:07:58:14 - 00:08:26:12]
+In alternativa, si possono visualizzare informazioni contestuali aggiuntive, come nel grafico sul bike sharing esaminato ieri pomeriggio: cliccando su un elemento si attiva un vero e proprio drill-down sul contesto circoscritto, creando un collegamento visivo guidato dall'interazione stessa.
+
+-->
+<!-- Zoom e panning permettono agli utenti di navigare dataset di grandi dimensioni, concentrandosi sulle aree di interesse senza perdere la consapevolezza del contesto generale.
+[00:08:26:14 - 00:09:07:02]
+Lo zoom e il panning permettono di applicare filtri o ingrandimenti specifici.
+
+ -->
+<!-- Le tecniche di ri-scalatura dei colori aiutano gli utenti a percepire e analizzare meglio le differenze di valore in intervalli specifici o in relazione a valori di riferimento. 
+[00:08:26:14 - 00:09:07:02]
+Lo zoom e il panning permettono di applicare filtri o ingrandimenti specifici. Riprendendo l'esempio delle mappe, possiamo ricalibrare e riadattare la visualizzazione modificando la scala cromatica per un intervallo specifico o concentrandoci su un sottointervallo di valori.
+
+[00:09:07:03 - 00:09:56:06]
+Ad esempio, in un grafico interattivo che mostra il tasso di disoccupazione negli Stati Uniti per ogni contea (con il titolo rimasto in italiano), l'utente può variare il focus. Utilizzando una scala di colori lineare si ottiene una panoramica complessiva del fenomeno; adottando invece una scala cromatica divergente, è possibile evidenziare chiaramente i territori che si collocano al di sotto della media o della mediana.
+
+[00:09:56:07 - 00:10:54:03]
+Questo approccio serve a evidenziare i valori di soglia utili a decidere come rappresentare e interpretare i dati visualizzati.
+-->
+<!-- Il riordino aiuta a rivelare pattern e relazioni, disponendo gli elementi visivi in modi che mettono in evidenza somiglianze, differenze o tendenze.
+A volte si interviene modificando la stessa rappresentazione visiva: come visto in un esercizio precedente sul ridisegno di una tabella, è possibile rendere un cerchio o un quadrato più visibile rispetto agli altri senza coprirli. In alcune situazioni, invertendo l'ordine di disposizione dei dati, alcuni elementi emergono con maggiore o minore evidenza.
+
+[00:10:54:04 - 00:11:22:10]
+L'applicazione di un determinato criterio di ordinamento, o del suo opposto, si rivela utile per orientare il focus analitico verso gli elementi con le prestazioni più elevate (top performing) oppure verso quelli con i risultati più bassi (lower performing).
+
+[00:11:22:12 - 00:11:36:11]
+(Sottointervallo di transizione focalizzato sulla distinzione visiva degli elementi estremi di una distribuzione).
+
+ -->
+<!-- _class: chapter -->
+<!-- _paginate: skip -->
+<!-- In questa sezione vediamo come l'interazione permetta agli utenti di trasformare i dati sottostanti per ottenere prospettive analitiche diverse. 
+
+[00:11:36:12 - 00:12:24:07]
+Il livello di interazione applicato alla trasformazione dei dati si colloca in una posizione intermedia tra una manipolazione globale e una locale. Questo permette di ottenere una vista più chiara e semplificata del dataset, riducendo la quantità di valori a schermo per favorire l'astrazione concettuale.
+-->
+<!-- Le operazioni di trasformazione dei dati permettono agli utenti di adattare i dati alle proprie esigenze analitiche e di rivelare pattern che altrimenti resterebbero nascosti. 
+
+[00:12:24:07 - 00:13:13:01]
+Prendiamo il caso della relazione tra i titoli valutati su IMDb e su Rotten Tomatoes: l'iniziale nuvola di punti, fortemente agglomerata e sovrapposta, può essere trasformata in una visualizzazione strutturata più accessibile. Sebbene questo riduca la complessità originaria del dataset, il messaggio principale sulla natura della relazione tra le variabili rimane intatto.
+
+[00:13:13:02 - 00:13:19:09]
+Il nucleo informativo e analitico della relazione viene così preservato.
+
+[00:13:52:01 - 00:14:22:00]
+In questo scenario, l'intervallo sull'asse X è definito all'interno del dominio tra 0 e 5. Possiamo considerarlo a tutti gli effetti come un grafico strutturato a livelli (layered chart).
+
+[00:14:22:00 - 00:14:51:04]
+L'interazione modifica dinamicamente la vista del grafico sovrapposto. In questi casi specifici, ai fini del design, sarebbe più efficiente e pulito integrare direttamente le informazioni all'interno di un unico grafico coordinato.
+
+-->
+<!-- Le diverse tecniche di trasformazione dei dati servono scopi analitici differenti e aiutano a mettere in luce aspetti diversi degli stessi dati. 
+[00:13:19:10 - 00:13:52:00]
+Quali tipi di trasformazione dei dati possiamo applicare? Molte rispondono a quesiti metodologici, riguardanti ad esempio la definizione dei valori intermedi o la gestione delle soglie. Sostanzialmente, in questo esempio si tratta di un metodo per applicare l'aggregazione ai valori posizionati sull'asse delle ascisse (X).
+
+[00:14:51:05 - 00:15:38:09]
+Come accennato, esistono diverse tipologie di trasformazione dei dati: la discretizzazione (che converte un valore continuo in uno categorico o ordinale), la trasformazione logaritmica (essenziale per gestire distribuzioni asimmetriche e operare su ordini di grandezza anziché su scale lineari), l'aggregazione o binning tramite indici statistici di tendenza centrale per ridurre i valori mostrati, l'integrazione di attributi (es. unire mese e giorno) e lo smoothing per mitigare le fluttuazioni minori.
+
+[00:15:38:09 - 00:16:22:02]
+L'obiettivo dello smoothing è far emergere il trend generale ed eliminare il rumore di fondo, facilitando il calcolo di metriche avanzate come indici o rapporti calcolati preventivamente.
+
+-->
+<!-- Queste tecniche di trasformazione specializzate aiutano ad analizzare i pattern temporali, mettendo in evidenza tendenze e variazioni che altrimenti sarebbero difficili da percepire. 
+Questo approccio è particolarmente rilevante per la scomposizione e la trasformazione delle serie storiche, dove si applicano metodi di livellamento dedicati.
+
+[00:16:22:04 - 00:16:43:00]
+Ad esempio, se analizziamo due serie storiche contemporaneamente, possiamo calcolarne l'intersezione, determinare quanto differiscano quantitativamente l'una dall'altra o definire specifici intervalli temporali di confronto.
+
+
+-->
+<!-- _class: chapter -->
+<!-- _paginate: skip -->
+<!-- In questa sezione trattiamo le tecniche per selezionare e filtrare i dati, in modo da concentrarsi sui sottoinsiemi rilevanti. -->
+
+---
+
+# Selection and Filtering
+<div class="columns-2">
+<div>
+
+- **Selection:** Taking a portion of data to visualize it
+- **Filtering:** Temporarily removing data of lesser interest
+
+- Both require specifying properties of data interest
+- Both enable detailed exploration of particular portions of data
+</div>
+<div>
+
+  <div class="interactive-chart" id="selection-filtering">
+  </div>
+
+  <div class="img-chart">
+  <img src="img/DVVA_11/selection_filtering.png" alt="" height="400px"/>
+  </div>
+
+  </div>
+  <script>
+  insertChart('selection-filtering', './chart/DVVA_11/selection_filtering.json', '100%', '450px');
+  </script>
+
+<!-- Selezione e filtraggio sono tecniche di interazione fondamentali che aiutano gli utenti a concentrarsi sui sottoinsiemi di dati rilevanti, riducendo la complessità visiva. 
+
+[00:16:43:02 - 00:17:38:08]
+Le operazioni di selezione e filtraggio, sebbene introdotte all'inizio, consentono di isolare una porzione specifica del dataset. Possiamo selezionare un'unica tipologia di dato — ad esempio una sola area geografica o un paese produttore nel dataset delle automobili — mostrando esplicitamente quella parte o applicando un filtro che escluda o attenui gli elementi non rilevanti al momento.
+
+[00:17:38:09 - 00:18:22:03]
+Nel dataset delle auto, organizzato per paese produttore, il filtro permette di concentrarsi su specifiche sottocategorie mantenendo intatto il contesto complessivo: i dati non di interesse rimangono visibili sullo sfondo per il confronto, ma assumono caratteristiche visive meno evidenti, venendo desaturati in grigio.
+
+-->
+<!-- Possono essere usati criteri multipli per selezionare o filtrare i dati, permettendo agli utenti di definire con precisione quale sottoinsieme di dati vogliono esaminare. 
+
+[00:18:22:05 - 00:18:56:02]
+Esistono numerose combinazioni di filtri a seconda della natura dei dati: filtri basati sugli attributi, filtri temporali, filtri spaziali (come lo zoom su una mappa) o selezioni puntuali su singoli elementi. Nei grafici di rete (network), focalizzarsi sulle relazioni permette di evidenziare istantaneamente le entità collegate al clic su un determinato arco o link.
+
+-->
+<!-- L'evidenziazione e il filtraggio servono scopi analitici diversi: l'evidenziazione mette in risalto i dati selezionati mantenendo il contesto, mentre il filtraggio si concentra esclusivamente sul sottoinsieme selezionato.
+[00:18:56:03 - 00:19:26:04]
+L'evidenziazione (highlighting) si sviluppa in parallelo con il filtraggio: distingue visivamente l'elemento d'interesse rispetto agli altri, ma mantiene i dati generali visibili per preservare il concetto di contesto, consentendo all'utente di identificare le relazioni sistemiche.
+
+[00:19:26:04 - 00:20:09:15]
+Al contrario, un filtro reale — come quello applicato in alcuni esercizi precedenti — esclude drasticamente i dati non corrispondenti ai criteri (es. selezionando solo l'anno 2016). In questo modo i dati esterni vengono eliminati dalla vista e non sono più visibili; ciò riduce la complessità visiva ma comporta la perdita delle informazioni contestuali, richiedendo un compromesso in fase di progettazione.
+
+[00:20:10:00 - 00:20:42:15]
+Questo filtraggio può essere implementato a livello di codice (scrivendo script in Python per generare la visualizzazione) oppure tramite la tecnica visiva del brushing, utilizzata in scenari con viste multiple coordinate.
+
+-->
+<!-- Il brushing è una tecnica di interazione molto comune che permette agli utenti di selezionare ed evidenziare elementi direttamente attraverso l'interfaccia di visualizzazione. 
+
+[00:20:42:15 - 00:21:16:08]
+In un sistema a viste multiple collegate, qualsiasi azione eseguita su un grafico viene propagata istantaneamente agli altri. Un esempio tipico è il grafico composto per le serie storiche (overview+detail), in cui un lungo periodo temporale viene compresso e sintetizzato in un grafico più piccolo posizionato in basso, equipaggiato con un widget per la selezione degli intervalli.
+
+[00:21:16:09 - 00:21:35:04]
+Questo intervallo temporale selezionato in basso funge da filtro di selezione per il grafico principale in alto. In questo modo integriamo una tecnica di evidenziazione per gestire la selezione e una tecnica di filtraggio per focalizzare l'analisi su una specifica porzione di dati.
+
+[00:21:35:05 - 00:22:10:10]
+Il collegamento e l'evidenziazione possono agire su un singolo elemento (interagendo con un punto per aggiornare la vista corrispondente sull'altro grafico) o su un singolo intervallo. È possibile gestire anche selezioni multiple, tracciando ad esempio più rettangoli di selezione e unendoli all'interno di scenari analitici complessi. Questo approccio è noto con diversi sinonimi: viste multiple coordinate (CMV), brushing o viste collegate (linked views).
+
+[00:22:10:11 - 00:22:41:00]
+Si tratta di una tecnica estremamente potente quando gli elementi del dataset sono troppo complessi per essere presentati contemporaneamente in un'unica schermata. Ci consente di esplorare i dati da molteplici prospettive in tempo reale, sfruttando il coordinamento delle viste per effettuare confronti immediati.
+
+[00:22:41:02 - 00:23:10:08]
+Consideriamo un semplice esempio accademico con serie storiche generate a scopo dimostrativo, utile per illustrare l'interazione tra elementi e i rispettivi valori espansi nel tempo sugli assi coordinati.
+
+-->
+<!-- _class: chapter -->
+<!-- _paginate: skip -->
+<!-- In questa sezione discutiamo le tecniche per coordinare più viste e offrire prospettive complementari sugli stessi dati. -->
+
+---
+
+# Coordinated Multiple Views (CMV)
+
+- Used when data components can't be effectively shown in a single display
+- Allows looking at same data from different perspectives
+- Coordinated views support finding corresponding information across displays
+- Essential for complex data analysis
+
+  <div class="interactive-chart" id="multi_display">
+  </div>
+
+  <div class="img-chart">
+  <img src="img/DVVA_11/multi_display.svg" alt="" height="300px"/>
+  </div>
+
+  </div>
+  <script>
+  insertChart('multi_display', './chart/DVVA_11/multi_display.json', '100%', '450px');
+  </script>
+
+<!-- Le viste multiple coordinate permettono agli utenti di vedere contemporaneamente aspetti o rappresentazioni diversi degli stessi dati, in modo che le interazioni in una vista influenzino le altre. 
+
+[00:23:41:05 - 00:24:20:07]
+Questo meccanismo di brushing può essere implementato secondo diverse modalità, tra cui la selezione collegata (linked selection): selezionando o evidenziando uno o più elementi in un grafico, questi vengono evidenziati automaticamente nelle altre viste.
+
+[00:24:20:08 - 00:24:59:11]
+Le caratteristiche visive collegano i punti tra i grafici: se un punto dati ha un determinato colore in una proiezione, lo stesso colore verrà mantenuto nel grafico collegato dall'altro lato, supportando la relazione di identità dell'elemento. Il filtraggio agisce in modo analogo: la selezione in una vista filtra i dati in tutte le altre.
+
+[00:24:59:13 - 00:25:28:07]
+La propagazione visiva si estende alla simbolizzazione comune (common symbolization), legata a colori, forme e dimensioni coerenti tra le viste, e al condizionamento (conditioning).
+
+[00:25:28:08 - 00:26:05:03]
+Il condizionamento si applica per mostrare elementi multipli propagati su diverse selezioni e categorie (es. combinando filtri sull'origine del produttore, sulla potenza, ecc.) al fine di creare un insieme di iperpiani che definiscono la selezione finale. Mantenere costanti colore e forma in grafici diversi, anche cambiando la proiezione dell'asse X, è uno strumento potente che richiede tuttavia cautela.
+
+[00:26:05:06 - 00:26:10:10]
+(Sottointervallo di transizione sull'aggiornamento dinamico delle viste e sulla fluidità del rendering).
+
+-->
+<!-- Questi meccanismi di coordinazione permettono agli utenti di mantenere le connessioni tra le diverse rappresentazioni visive degli stessi dati. 
+[00:26:10:11 - 00:26:49:02]
+Se il numero di grafici collegati è troppo elevato, muovere il mouse può causare un aggiornamento simultaneo eccessivo, generando un carico cognitivo insostenibile per l'utente e rendendo difficile cogliere il messaggio analitico di similarità. È preferibile limitare queste interazioni fornendo solo i collegamenti strettamente rilevanti per il task.
+
+[00:26:49:04 - 00:27:21:11]
+Ricordiamo l'esempio iniziale della metropolitana di Boston: avevamo un grafico animato in cui ogni interazione si rifletteva in movimenti repentini degli altri elementi, una dinamica difficile da seguire in contesti complessi. È possibile mitigare questo problema integrando descrizioni testuali che interagiscano dinamicamente con la rappresentazione visiva.
+
+-->
+<!-- La propagazione del colore è una tecnica molto usata per il collegamento visivo tra viste diverse, che permette agli utenti di seguire gli stessi elementi attraverso più visualizzazioni. 
+[00:27:21:12 - 00:27:52:09]
+In questo caso, il collegamento propaga la selezione o il filtraggio a tutti gli elementi, mentre la descrizione testuale fornisce la necessaria semantica aziendale o di ricerca. Si tratta di una forma di anticipazione di ciò che accadrà al momento del clic. Sebbene l'interattività sia uno strumento potente, comporta dei costi cognitivi elevati quando i cambiamenti simultanei sono troppi.
+
+[00:28:28:12 - 00:29:02:15]
+In questi casi è ottimale inserire una descrizione testuale dotata di un link diretto per evidenziare lo strumento. Possono emergere anche problemi di performance computazionale, come osservato ieri analizzando i limiti di rendering delle librerie grafiche (es. Altair) quando si gestisce una mole eccessiva di dati destinata a operazioni simultanee di filtraggio, selezione e brushing.
+
+-->
+<!-- Dare agli utenti il controllo sulla coordinazione è importante per gestire la complessità e mantenere il focus in ambienti analitici con viste multiple. 
+
+[00:27:52:09 - 00:28:28:11]
+Inoltre, un'esplorazione completamente libera è difficile da prevedere in fase di progettazione. Se vogliamo che l'utente noti un pattern specifico (ad esempio la similarità tra due elementi), lasciargli totale libertà esplorativa è rischioso, poiché non vi è alcuna garanzia che individui autonomamente la regolarità.
+
+[00:29:03:02 - 00:29:39:13]
+Il carico di dati sovraccarica l'elaborazione locale della macchina, specialmente se l'aggiornamento richiede il ricalcolo di numerosi elementi grafici vettoriali. Diventa inoltre complesso tracciare e documentare il processo analitico svolto dall'utente per riprodurlo o comunicarlo all'interno di un team di lavoro.
+
+[00:29:39:14 - 00:30:12:07]
+Diventa quindi essenziale che la fase di progettazione e l'architettura del sistema tengano conto di questi limiti. L'interazione è una scorciatoia per ridurre la complessità visiva, ma non esime il progettista dalla responsabilità di trovare modalità efficaci per mostrare i pattern a colpo d'occhio. Riprendendo l'esempio di Boston, la descrizione testuale o lo scrolling guidano l'utente all'interno della narrazione, evidenziando ciò che è rilevante.
+
+
+
+-->
+<!-- _class: chapter -->
+<!-- _paginate: skip -->
+<!-- In questa sezione parliamo degli svantaggi e dei limiti della visualizzazione interattiva. -->
+
+---
+
+# Limitations and Disadvantages
+
+<div class="columns-2">
+
+<div>
+
+- **Cognitive and time costs:**
+  - Requires learning interactions
+  - Diverts attention to UI operations
+  - Consumes analyst time
+
+- **Lack of systematic approach:**
+  - Hard to ensure comprehensive analysis
+  - May rely too much on serendipity
+  - Difficult to track explored elements
+
+</div>
+
+<div>
+
+- **Performance issues:**
+  - Slow updates with large datasets
+  - Lag reduces analytical flow
+  - Computational demands
+
+- **Limited traceability:**
+  - Difficult to record analysis process
+  - Challenges in reproducing findings
+  - Harder to explain to others
+
+</div>
+
+</div>
+
+<!-- L'interazione offre molti vantaggi, ma ha anche costi e limitazioni che è importante tenere in considerazione quando si progettano visualizzazioni e flussi di lavoro analitici. 
+
+[00:31:00:04 - 00:31:28:07]
+L'interfaccia deve supportare gesture e comandi naturali (es. un'operazione di clic e trascinamento coerente). È consigliabile evitare che in una porzione dell'interfaccia la selezione avvenga tramite trascinamento e in un'altra tramite scorrimento (scrolling). La coerenza dei comandi aiuta l'utente a interagire in modo fluido.
+
+[00:31:28:08 - 00:32:10:00]
+Un altro elemento cruciale è la presenza di un feedback visivo immediato che attesti l'esecuzione dell'azione. Durante il trascinamento di un rettangolo di selezione, la presenza di un supporto visivo esplicito aiuta l'utente a comprendere lo spostamento. Se i dati non possono essere precaricati interamente a causa delle dimensioni del dataset, le operazioni di panning e zooming generano query inviate via web per recuperare e plottare le nuove informazioni.
+
+[00:32:10:01 - 00:32:46:08]
+In questo lasso di tempo è fondamentale mostrare un feedback di caricamento (es. opacizzando il grafico temporaneamente). Una volta completato il caricamento, gli elementi riprenderanno il colore originale. Fornire questo supporto è di primaria importanza per evitare che l'utente agisca in modo casuale, ignorando lo stato del sistema. Ove possibile, occorre garantire la funzione di annullamento e ripristino per consentire di tornare istantaneamente alla vista globale originaria tramite un doppio clic.
+
+[00:32:46:08 - 00:33:31:00]
+Integrare documentazione, suggerimenti testuali e messaggi contestuali si rivela utilissimo per definire chiare call to action, specialmente per gli utenti che si interfacciano con il grafico per la prima volta e potrebbero non intuire le potenzialità interattive dell'interfaccia o di un determinato widget. Inserire una didascalia esplicita (es. "passa il mouse sui punti per vedere i dettagli") guida l'esplorazione in modo ottimale.
+
+-->
+<!-- Gli approcci più efficaci combinano spesso la visualizzazione interattiva con metodi computazionali, per ridurre al minimo le interazioni di routine pur mantenendo la libertà esplorativa. 
+[00:32:46:08 - 00:33:31:00]
+Integrare documentazione, suggerimenti testuali e messaggi contestuali si rivela utilissimo per definire chiare call to action, specialmente per gli utenti che si interfacciano con il grafico per la prima volta e potrebbero non intuire le potenzialità interattive dell'interfaccia o di un determinato widget. Inserire una didascalia esplicita (es. "passa il mouse sui punti per vedere i dettagli") guida l'esplorazione in modo ottimale.
+
+[00:33:31:02 - 00:33:57:14]
+Tra le diverse strategie di design per guidare l'utente spicca la metafora del "bicchiere da martini" (Martini Glass), caratterizzato da una base, un gambo stretto e un'apertura triangolare. L'utente accede alla visualizzazione seguendo un percorso narrativo lineare e vincolato (il gambo), per poi approdare a uno spazio analitico aperto (la coppa) in cui è libero di esplorare i dati a piacimento.
+[00:33:57:15 - 00:34:15:03]
+Un secondo approccio, ampiamente utilizzato nei progetti accademici e dashboard complesse, è la struttura a diapositive (slide-based o scrollytelling). La schermata viene strutturata in sezioni sequenziali dedicate a step specifici (es. raccolta dati, analisi, trasformazione). Lo scorrimento naturale guida l'utente attraverso i contenuti, lasciandolo libero al termine del percorso di tornare sui propri passi o di interagire autonomamente con le diverse visualizzazioni tramite barre degli strumenti dedicate.
+
+-->
+<!-- Queste buone pratiche aiutano a massimizzare i vantaggi dell'interazione, riducendone al contempo i costi e i limiti. 
+
+-->
+<!-- _class: all-image -->
+
+<h1>Thank You!</h1>
+
+![bg contains](img/DVVA_11/telefono-sirio.jpg)
+
+<!-- Con questo concludiamo la nostra esplorazione delle tecniche di interazione per la visualizzazione. Queste tecniche, quando implementate correttamente, possono migliorare significativamente la capacità analitica delle visualizzazioni. -->

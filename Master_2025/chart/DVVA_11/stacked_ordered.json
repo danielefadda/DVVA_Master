@@ -10,7 +10,7 @@
         "title": "Sum of Yield",
         "type": "quantitative"
       },
-      "y": {"field": "variety", "type": "nominal"}
+      "y": {"field": "variety", "type": "nominal", "title": null}
     },
     "params": [
       {
@@ -34,6 +34,8 @@
       }
     ],
     "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json",
+    "width": 400,
+    "height": 300,
     "datasets": {
       "data-9cc0564cb5591205eeeca8d2429dd11b": [
         {
