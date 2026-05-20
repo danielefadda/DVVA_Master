@@ -5,7 +5,7 @@
   "width": 600,
   "height": 400,
   "title": {
-    "text": "Tasso di disoccupazione negli Stati Uniti",
+    "text": "Unemployment rate in the United States",
     "frame": "group"
   },
   "style": "view",
@@ -43,7 +43,7 @@
     }
   ],
   "signals": [
-    {"name": "param_1", "update": "if(use_orangered,'blues','blueorange')"},
+    {"name": "param_1", "update": "if(use_orangered,'blueorange','blues')"},
     {
       "name": "use_orangered",
       "value": false,
@@ -66,7 +66,7 @@
           },
           "ariaRoleDescription": {"value": "geoshape"},
           "description": {
-            "signal": "\"Tasso di disoccupazione (%): \" + (format(datum[\"rate\"], \"\")) + \"; id: \" + (isValid(datum[\"id\"]) ? datum[\"id\"] : \"\"+datum[\"id\"]) + \"; rate: \" + (format(datum[\"rate\"], \"\"))"
+            "signal": "\"Unemployment rate (%): \" + (format(datum[\"rate\"], \"\")) + \"; id: \" + (isValid(datum[\"id\"]) ? datum[\"id\"] : \"\"+datum[\"id\"]) + \"; rate: \" + (format(datum[\"rate\"], \"\"))"
           }
         }
       },
@@ -85,10 +85,9 @@
   ],
   "legends": [
     {
-      "title": "Tasso di disoccupazione (%)",
+      "title": "Unemployment rate US",
       "fill": "color",
-      "direction": "horizontal",
-      "gradientLength": {"signal": "clamp(width, 100, 200)"}
+      "direction": "horizontal"    
     }
   ],
   "config": {
