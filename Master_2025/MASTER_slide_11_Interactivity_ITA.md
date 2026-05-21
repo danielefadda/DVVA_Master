@@ -511,8 +511,8 @@ Facendo zoom out invece si cambia il tipo di proiezione cartografica, da una pro
 
 <hr>
 
-<i class="fa-solid fa-ban"></i> <s>[DOMAIN]</s>
-<i class="fa-solid fa-hand-point-right"></i> <strong>[RANGE]</strong>
+<i class="fa-solid fa-hand-point-right"></i> <strong>[DOMAIN]</strong>
+<i class="fa-solid fa-ban"></i> <s>[RANGE]</s>
 
 </div>
 <div>
@@ -1186,6 +1186,6 @@ Interactive visualization transforms a static mass of information into a **dynam
 
 <h1>Thank You!</h1>
 
-![bg contains](img/DVVA_11/telefono-sirio.jpg)
+![bg contains](img/DVVA_11/xerox.jpg)
 
 <!-- Con questo concludiamo la nostra esplorazione delle tecniche di interazione per la visualizzazione. Queste tecniche, quando implementate correttamente, possono migliorare significativamente la capacità analitica delle visualizzazioni. -->
