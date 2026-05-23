@@ -47,7 +47,7 @@ paginate: true
 
 <!-- 
 
-Oggi affronteremo il tema dell'interazione in Altair. L'obiettivo di oggi è proprio capire l'architettura logica e i concetti base per trasformare i nostri grafici statici in strumenti interattivi, sfruttando l'approccio dichiarativo e pulito che caratterizza la libreria.
+L'obiettivo di oggi è capire l'architettura logica e i concetti base per trasformare i nostri grafici statici in strumenti interattivi.
 -->
 
 ---
@@ -62,12 +62,17 @@ Altair provides a declarative grammar for specifying interactive visualizations.
 - **Widgets** and other **chart input elements** can bind to parameters so that charts can be manipulated via drop-down menus, radio buttons, sliders, legends, etc.    
 
 <!--
-Per gestire l'interazione, la grammatica di Altair si poggia su tre pilastri architetturali. Il primo è costituito dai PARAMETRI: pensateli come l'infrastruttura di base per l'interattività. 
-Possono essere semplici variabili o selezioni più complesse, guidate da eventi, che intercettano gli input dell'utente come i click o il trascinamento del mouse.
+Per gestire l'interazione, la grammatica di Altair si poggia su tre pilastri.
 
-Il secondo pilastro riguarda le CONDIZIONI e i FILTRI: rappresentano la logica applicata. Ci permettono di modificare le codifiche visive o di eseguire il subsetting dei dati in risposta ai cambiamenti di stato dei nostri parametri.
+- Il primo è costituito dai PARAMETRI: pensateli come l'elemento di base per l'interattività. 
+* Possono essere semplici variabili
+* selezioni più complesse, guidate da eventi, che intercettano gli input dell'utente come i click o il trascinamento del mouse.
 
-Infine abbiamo i WIDGET: componenti UI nativi, come slider o menu a tendina, che possiamo legare direttamente ai parametri per offrire all'utente un controllo esplicito sui valori, senza che debba interagire per forza con il canvas del grafico.
+Il secondo pilastro riguarda le CONDIZIONI e i FILTRI: rappresentano la logica applicata. 
+* Ci permettono di modificare le codifiche visive o di eseguire ulteriori operazioni sui dati in risposta ai cambiamenti di stato dei nostri parametri.
+
+Infine abbiamo i WIDGET: componenti UI nativi.
+* Possono essere slider o menu a tendina, che possiamo legare direttamente ai parametri per offrire all'utente un controllo esplicito sui valori, senza che debba interagire direttamente con il grafico.
 
 -->
 
@@ -99,17 +104,17 @@ alt.Chart(cars).mark_circle(opacity=op_var).encode(
 
 <!--
 
-Partiamo dai parametri di tipo variabile. Nel blocco di codice potete notare come istanziamo una variabile usando alt.param(), fornendo in questo caso un valore di default di 0.1. 
+Partiamo dai parametri di tipo variabile. 
 
-Per far sì che il nostro chart riconosca questa variabile e la integri nella sua logica, dobbiamo fare un injection esplicitamente richiamando il metodo add_params() sull'oggetto chart. Quindi add_params(op_var) è ciò che collega la nostra variabile al chart.
+Nel blocco di codice potete notare come istanziamo una variabile usando alt.param(), fornendo in questo caso un valore di default di 0.1. 
 
-A questo punto, possiamo usare la nostra op_var passandola come reference per un attributo visivo — qui stiamo definendo l'opacità dei mark. 
+Per far sì che il nostro chart riconosca questa variabile e la integri nella sua logica, dobbiamo fare un injection esplicitamente richiamando il metodo add_params() sull'oggetto chart. 
+Quindi add_params(op_var) è ciò che collega la nostra variabile al chart.
+
+A questo punto, possiamo usare la nostra op_var passandola come reference per un attributo visivo 
+— qui stiamo definendo l'opacità dei mark. 
 
 Questo approccio centralizza un valore e lo rende riutilizzabile, ma, cosa ancora più importante, prepara l'intero grafico per il data-binding dinamico.
-
-È legittimo chiedersi se tutto questo lavoro sia necessario. Ecco un modo più naturale per ottenere lo stesso risultato, che evita l'uso sia di param() sia di add_params().
-
-Il vantaggio di usare param() diventa evidente solo quando introduciamo un componente aggiuntivo. Nell'esempio seguente usiamo la proprietà bind del parametro, così il parametro diventa collegato a un input element. In questo esempio, l'input element è uno slider widget.
 
 -->
 
@@ -140,11 +145,20 @@ alt.Chart(cars).mark_circle(opacity=op_var).encode(
 </div>
 
 <!--
+Il vantaggio di usare param() diventa evidente solo quando introduciamo un componente aggiuntivo. 
+Nell'esempio seguente usiamo la proprietà bind del parametro, così il parametro diventa collegato a un input element. In questo esempio, l'input element è uno slider widget.
+
 Ed ecco dove questo setup mostra la sua utilità: il data-binding tra parametri e interfacce utente. 
 
-Vogliamo associare il nostro parametro a un widget. Utilizzando alt.binding_range() andiamo a istanziare un classico slider HTML, definendo min, max e step. Il collegamento avviene assegnando questo slider all'argomento bind del nostro alt.param(). 
+Vogliamo associare il nostro parametro a un widget. 
 
-Il risultato in output è immediato: l'utente ora può modulare dinamicamente l'opacità dei punti sul grafico agendo sullo slider. Il tutto avviene in tempo reale, senza che l'engine debba ricalcolare l'intera specifica di rendering.
+Utilizzando alt.binding_range() andiamo a istanziare un classico slider HTML, definendo min, max e step. 
+
+Il collegamento avviene assegnando questo slider all'argomento bind del nostro alt.param(). 
+
+Il risultato in output è immediato: l'utente ora può modulare dinamicamente l'opacità dei punti sul grafico agendo sullo slider. 
+
+Il tutto avviene in tempo reale, senza che l'engine debba ricalcolare l'intera specifica di rendering.
 
 -->
 
@@ -177,7 +191,9 @@ alt.Chart(cars).mark_point().encode(
 </div>
 
 <!--
-Passiamo ora a parametri più sofisticati: le selezioni spaziali guidate dagli eventi del mouse. In Altair, il metodo selection_interval() crea quello che in visual analytics chiamiamo brush, ovvero un'area rettangolare interattiva tracciabile sul grafico. 
+Passiamo ora a parametri più sofisticati: le selezioni spaziali guidate dagli eventi del mouse. 
+
+In Altair, il metodo selection_interval() crea quello che in visual analytics chiamiamo brush, ovvero un'area rettangolare interattiva tracciabile sul grafico. 
 
 Se avessimo bisogno di selezioni discrete, useremmo selection_point(). Se eseguite questo codice, noterete che potete già disegnare il rettangolo di selezione sul grafico. 
 
